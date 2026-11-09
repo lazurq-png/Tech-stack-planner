@@ -1,0 +1,1124 @@
+{
+  "ran": {
+    "fastapi": {
+      "framework": [
+        "fastapi"
+      ],
+      "frontend": [
+        "server-templates",
+        "react",
+        "vue",
+        "angular"
+      ],
+      "api": [
+        "server",
+        "rest",
+        "graphql"
+      ],
+      "database": [
+        "sqlite",
+        "postgresql",
+        "mysql",
+        "mongodb"
+      ],
+      "data": [
+        "sqlalchemy",
+        "psycopg"
+      ],
+      "migrations": [
+        "alembic",
+        "flyway-any"
+      ],
+      "login": [
+        "own",
+        "auth0",
+        "entra"
+      ],
+      "admin": [
+        "in-app",
+        "react-admin",
+        "low-code"
+      ],
+      "transport": [
+        "websocket",
+        "sse",
+        "managed"
+      ],
+      "payment": [
+        "klarna",
+        "stripe",
+        "adyen",
+        "paypal"
+      ]
+    },
+    "express": {
+      "framework": [
+        "express"
+      ],
+      "frontend": [
+        "server-templates",
+        "react",
+        "vue",
+        "angular"
+      ],
+      "api": [
+        "server",
+        "rest",
+        "graphql"
+      ],
+      "database": [
+        "sqlite",
+        "postgresql",
+        "mysql",
+        "mongodb"
+      ],
+      "data": [
+        "kysely",
+        "prisma",
+        "drizzle",
+        "typeorm"
+      ],
+      "migrations": [
+        "flyway-any",
+        "prisma-migrate",
+        "drizzle-kit",
+        "node-pg-migrate"
+      ],
+      "login": [
+        "own",
+        "keycloak",
+        "entra"
+      ],
+      "admin": [
+        "in-app",
+        "react-admin",
+        "low-code"
+      ],
+      "transport": [
+        "sse",
+        "websocket",
+        "library",
+        "managed"
+      ],
+      "payment": [
+        "stripe",
+        "paypal",
+        "klarna",
+        "adyen"
+      ],
+      "frontendLanguage": [
+        "javascript"
+      ]
+    },
+    "nextjs": {
+      "framework": [
+        "nextjs"
+      ],
+      "frontend": [
+        "react"
+      ],
+      "api": [
+        "rest",
+        "graphql"
+      ],
+      "database": [
+        "sqlite",
+        "postgresql",
+        "mysql",
+        "mongodb"
+      ],
+      "data": [
+        "prisma",
+        "drizzle",
+        "kysely",
+        "typeorm"
+      ],
+      "migrations": [
+        "prisma-migrate",
+        "drizzle-kit",
+        "flyway-any",
+        "node-pg-migrate"
+      ],
+      "login": [
+        "own",
+        "auth0",
+        "keycloak"
+      ],
+      "admin": [
+        "in-app",
+        "low-code",
+        "react-admin"
+      ],
+      "transport": [
+        "sse",
+        "websocket",
+        "managed",
+        "library"
+      ],
+      "payment": [
+        "paypal",
+        "adyen",
+        "klarna",
+        "stripe"
+      ],
+      "siteStack": [
+        "nextjs"
+      ],
+      "contentSource": [
+        "git-cms",
+        "git"
+      ],
+      "contentHost": [
+        "cloudflare",
+        "netlify"
+      ]
+    },
+    "aspnet-mvc": {
+      "api": [
+        "graphql",
+        "rest",
+        "server"
+      ],
+      "database": [
+        "sqlite",
+        "postgresql",
+        "mysql",
+        "mongodb"
+      ],
+      "data": [
+        "adonet",
+        "efcore",
+        "dapper"
+      ],
+      "migrations": [
+        "fluentmigrator",
+        "ef-migrations",
+        "dbup",
+        "flyway-any"
+      ],
+      "login": [
+        "own",
+        "keycloak",
+        "auth0"
+      ],
+      "admin": [
+        "in-app",
+        "react-admin",
+        "low-code"
+      ],
+      "transport": [
+        "managed",
+        "library",
+        "websocket",
+        "sse"
+      ],
+      "payment": [
+        "klarna",
+        "adyen",
+        "stripe",
+        "paypal"
+      ],
+      "framework": [
+        "aspnet-mvc"
+      ],
+      "frontend": [
+        "server-templates"
+      ]
+    },
+    "aspnet-api": {
+      "api": [
+        "graphql",
+        "rest",
+        "server"
+      ],
+      "database": [
+        "sqlite",
+        "postgresql",
+        "mysql",
+        "mongodb"
+      ],
+      "data": [
+        "adonet",
+        "efcore",
+        "dapper"
+      ],
+      "migrations": [
+        "fluentmigrator",
+        "ef-migrations",
+        "dbup",
+        "flyway-any"
+      ],
+      "login": [
+        "own",
+        "keycloak",
+        "auth0"
+      ],
+      "admin": [
+        "in-app",
+        "react-admin",
+        "low-code"
+      ],
+      "transport": [
+        "managed",
+        "library",
+        "websocket",
+        "sse"
+      ],
+      "payment": [
+        "klarna",
+        "adyen",
+        "stripe",
+        "paypal"
+      ],
+      "framework": [
+        "aspnet-api"
+      ],
+      "frontend": [
+        "vue",
+        "react",
+        "angular",
+        "server-templates"
+      ]
+    },
+    "blazor": {
+      "api": [
+        "graphql",
+        "rest",
+        "server"
+      ],
+      "database": [
+        "sqlite",
+        "postgresql",
+        "mysql",
+        "mongodb"
+      ],
+      "data": [
+        "adonet",
+        "efcore",
+        "dapper"
+      ],
+      "migrations": [
+        "fluentmigrator",
+        "ef-migrations",
+        "dbup",
+        "flyway-any"
+      ],
+      "login": [
+        "own",
+        "keycloak",
+        "auth0"
+      ],
+      "admin": [
+        "in-app",
+        "react-admin",
+        "low-code"
+      ],
+      "transport": [
+        "managed",
+        "library",
+        "websocket",
+        "sse"
+      ],
+      "payment": [
+        "klarna",
+        "adyen",
+        "stripe",
+        "paypal"
+      ],
+      "framework": [
+        "blazor"
+      ],
+      "frontend": []
+    },
+    "flask": {
+      "framework": [
+        "flask"
+      ],
+      "frontend": [
+        "server-templates",
+        "vue",
+        "react",
+        "angular"
+      ],
+      "api": [
+        "server",
+        "graphql",
+        "rest"
+      ],
+      "database": [
+        "sqlite",
+        "mongodb",
+        "mysql",
+        "postgresql"
+      ],
+      "data": [
+        "sqlalchemy",
+        "psycopg"
+      ],
+      "migrations": [
+        "alembic",
+        "flyway-any"
+      ],
+      "login": [
+        "own",
+        "keycloak",
+        "auth0"
+      ],
+      "admin": [
+        "in-app",
+        "low-code",
+        "react-admin"
+      ],
+      "transport": [
+        "sse",
+        "websocket",
+        "managed"
+      ],
+      "payment": [
+        "stripe",
+        "klarna",
+        "adyen",
+        "paypal"
+      ]
+    },
+    "hugo": {
+      "siteStack": [
+        "hugo"
+      ],
+      "contentSource": [
+        "git",
+        "git-cms"
+      ],
+      "contentHost": [
+        "netlify",
+        "vps-static"
+      ]
+    },
+    "astro": {
+      "siteStack": [
+        "astro"
+      ],
+      "contentSource": [
+        "git-cms",
+        "git"
+      ],
+      "contentHost": [
+        "github-pages",
+        "cloudflare"
+      ]
+    },
+    "django": {
+      "framework": [
+        "django"
+      ],
+      "frontend": [
+        "server-templates",
+        "vue",
+        "angular",
+        "react"
+      ],
+      "api": [
+        "server",
+        "graphql",
+        "rest"
+      ],
+      "database": [
+        "sqlite",
+        "postgresql",
+        "mysql",
+        "mongodb"
+      ],
+      "data": [
+        "django-orm"
+      ],
+      "migrations": [
+        "django-migrations",
+        "flyway-any"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app",
+        "django-admin"
+      ],
+      "transport": [
+        "sse",
+        "websocket"
+      ],
+      "payment": [
+        "stripe"
+      ]
+    },
+    "nethttp": {
+      "framework": [
+        "nethttp"
+      ],
+      "frontend": [
+        "server-templates",
+        "vue",
+        "react"
+      ],
+      "api": [
+        "rest",
+        "graphql"
+      ],
+      "database": [
+        "sqlite",
+        "mysql",
+        "postgresql"
+      ],
+      "data": [
+        "gorm",
+        "database-sql"
+      ],
+      "migrations": [
+        "golang-migrate",
+        "flyway-any",
+        "goose"
+      ],
+      "transport": [
+        "sse",
+        "websocket"
+      ],
+      "payment": [
+        "klarna"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app"
+      ]
+    },
+    "fastify": {
+      "framework": [
+        "fastify"
+      ],
+      "frontend": [
+        "server-templates",
+        "vue",
+        "angular",
+        "react"
+      ],
+      "api": [
+        "server",
+        "graphql",
+        "rest"
+      ],
+      "database": [
+        "sqlite",
+        "mysql",
+        "mongodb",
+        "postgresql"
+      ],
+      "data": [
+        "prisma",
+        "kysely",
+        "typeorm",
+        "drizzle"
+      ],
+      "migrations": [
+        "prisma-migrate",
+        "flyway-any",
+        "drizzle-kit"
+      ],
+      "login": [
+        "own",
+        "auth0"
+      ],
+      "admin": [
+        "in-app",
+        "react-admin"
+      ],
+      "transport": [
+        "sse",
+        "library",
+        "managed",
+        "websocket"
+      ],
+      "payment": [
+        "stripe",
+        "paypal"
+      ],
+      "frontendLanguage": [
+        "javascript",
+        "typescript"
+      ]
+    },
+    "nestjs": {
+      "framework": [
+        "nestjs"
+      ],
+      "frontend": [
+        "server-templates",
+        "react",
+        "vue",
+        "angular"
+      ],
+      "api": [
+        "server",
+        "rest",
+        "graphql"
+      ],
+      "database": [
+        "sqlite",
+        "postgresql",
+        "mongodb",
+        "mysql"
+      ],
+      "data": [
+        "kysely",
+        "prisma",
+        "drizzle",
+        "typeorm"
+      ],
+      "migrations": [
+        "flyway-any",
+        "prisma-migrate",
+        "drizzle-kit",
+        "node-pg-migrate"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app"
+      ],
+      "transport": [
+        "sse",
+        "websocket",
+        "library",
+        "managed"
+      ],
+      "payment": [
+        "stripe",
+        "paypal"
+      ]
+    },
+    "quarkus": {
+      "framework": [
+        "quarkus"
+      ],
+      "build": [
+        "maven",
+        "gradle"
+      ],
+      "frontend": [
+        "server-templates",
+        "angular",
+        "react",
+        "vue",
+        "vaadin"
+      ],
+      "api": [
+        "server",
+        "rest",
+        "graphql"
+      ],
+      "database": [
+        "h2",
+        "mongodb",
+        "postgresql",
+        "mysql"
+      ],
+      "data": [
+        "jpa",
+        "mybatis",
+        "jooq"
+      ],
+      "migrations": [
+        "flyway",
+        "liquibase"
+      ],
+      "login": [
+        "own",
+        "keycloak",
+        "auth0"
+      ],
+      "admin": [
+        "in-app",
+        "vaadin-admin"
+      ],
+      "transport": [
+        "sse",
+        "managed",
+        "websocket"
+      ],
+      "payment": [
+        "stripe",
+        "paypal",
+        "adyen",
+        "klarna"
+      ]
+    },
+    "echo": {
+      "framework": [
+        "echo"
+      ],
+      "frontend": [
+        "react",
+        "server-templates",
+        "vue"
+      ],
+      "api": [
+        "rest",
+        "server"
+      ],
+      "database": [
+        "postgresql",
+        "mongodb",
+        "mysql"
+      ],
+      "data": [
+        "gorm",
+        "sqlc"
+      ],
+      "migrations": [
+        "golang-migrate",
+        "atlas"
+      ],
+      "login": [
+        "own"
+      ],
+      "transport": [
+        "websocket",
+        "managed"
+      ],
+      "admin": [
+        "in-app"
+      ],
+      "payment": [
+        "adyen"
+      ]
+    },
+    "gin": {
+      "framework": [
+        "gin"
+      ],
+      "frontend": [
+        "server-templates",
+        "react",
+        "angular"
+      ],
+      "api": [
+        "server",
+        "graphql",
+        "rest"
+      ],
+      "database": [
+        "sqlite",
+        "postgresql"
+      ],
+      "data": [
+        "sqlc",
+        "ent"
+      ],
+      "migrations": [
+        "goose",
+        "atlas"
+      ],
+      "login": [
+        "own",
+        "auth0"
+      ],
+      "admin": [
+        "in-app"
+      ],
+      "transport": [
+        "sse"
+      ],
+      "payment": [
+        "stripe",
+        "paypal"
+      ]
+    },
+    "micronaut": {
+      "framework": [
+        "micronaut"
+      ],
+      "build": [
+        "maven",
+        "gradle"
+      ],
+      "frontend": [
+        "server-templates",
+        "react",
+        "angular",
+        "vue"
+      ],
+      "api": [
+        "server",
+        "rest",
+        "graphql"
+      ],
+      "database": [
+        "h2",
+        "mongodb",
+        "postgresql",
+        "mysql"
+      ],
+      "data": [
+        "jpa",
+        "jooq",
+        "mybatis"
+      ],
+      "migrations": [
+        "flyway",
+        "liquibase"
+      ],
+      "login": [
+        "own",
+        "auth0"
+      ],
+      "admin": [
+        "in-app"
+      ],
+      "transport": [
+        "sse",
+        "websocket",
+        "managed"
+      ],
+      "payment": [
+        "stripe",
+        "paypal",
+        "adyen",
+        "klarna"
+      ]
+    },
+    "jakarta-ee": {
+      "framework": [
+        "jakarta-ee"
+      ],
+      "build": [
+        "maven",
+        "gradle"
+      ],
+      "frontend": [
+        "angular",
+        "vue",
+        "server-templates",
+        "react"
+      ],
+      "api": [
+        "rest",
+        "graphql",
+        "server"
+      ],
+      "database": [
+        "h2",
+        "postgresql",
+        "mysql",
+        "mongodb"
+      ],
+      "data": [
+        "jpa",
+        "mybatis",
+        "jooq"
+      ],
+      "migrations": [
+        "flyway",
+        "liquibase"
+      ],
+      "payment": [
+        "paypal",
+        "adyen",
+        "stripe"
+      ],
+      "login": [
+        "own",
+        "auth0"
+      ],
+      "admin": [
+        "in-app"
+      ],
+      "transport": [
+        "managed",
+        "websocket",
+        "sse"
+      ]
+    }
+  },
+  "partial": {
+    "login:own": "Logged-out visitors were blocked, but no browser signed up on this combination, so try signing up and logging in yourself.",
+    "contentSource:git-cms": "The site built with the editor's files in place. The editor itself needs your repository and an OAuth app, so it wasn't opened.",
+    "login:keycloak": "The app compiled, and its check that blocks logged-out visitors ran. The login itself needs a provider account, so it wasn't run.",
+    "login:auth0": "The app compiled, and its check that blocks logged-out visitors ran. The login itself needs a provider account, so it wasn't run.",
+    "login:entra": "The app compiled, and its check that blocks logged-out visitors ran. The login itself needs a provider account, so it wasn't run.",
+    "frontend:react": "It compiled and built, and the API it calls ran. I didn't open it in a browser.",
+    "frontend:vue": "It compiled and built, and the API it calls ran. I didn't open it in a browser.",
+    "frontend:angular": "It compiled and built, and the API it calls ran. I didn't open it in a browser.",
+    "payment:stripe": "Its test simulated the provider's response. The provider itself needs an account, so it wasn't called.",
+    "payment:paypal": "Its test simulated the provider's response. The provider itself needs an account, so it wasn't called.",
+    "payment:adyen": "Its test simulated the provider's response. The provider itself needs an account, so it wasn't called.",
+    "payment:klarna": "Its test simulated the provider's response. The provider itself needs an account, so it wasn't called.",
+    "transport:managed": "It compiled and the app started. Ably itself needs an account, so it wasn't called.",
+    "transport:websocket": "It compiled and the app's tests ran. I didn't watch it update an open browser.",
+    "transport:sse": "It compiled and the app's tests ran. I didn't watch it update an open browser.",
+    "transport:library": "It compiled and the app's tests ran. I didn't watch it update an open browser.",
+    "admin:react-admin": "The admin app compiled and built, and the delete endpoint it calls compiled. I didn't open it in a browser.",
+    "admin:in-app": "The check that blocks logged-out visitors ran. I didn't click through the page while logged in as an admin."
+  },
+  "browser": {
+    "express": {
+      "frontend": [
+        "server-templates",
+        "react",
+        "vue",
+        "angular"
+      ],
+      "transport": [
+        "sse",
+        "websocket",
+        "library"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app"
+      ]
+    },
+    "nextjs": {
+      "frontend": [
+        "react"
+      ],
+      "transport": [
+        "sse"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app"
+      ]
+    },
+    "fastapi": {
+      "frontend": [
+        "server-templates",
+        "react",
+        "vue"
+      ],
+      "transport": [
+        "websocket",
+        "sse"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app"
+      ]
+    },
+    "aspnet-mvc": {
+      "frontend": [
+        "server-templates"
+      ],
+      "transport": [
+        "sse"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app"
+      ]
+    },
+    "blazor": {
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app"
+      ]
+    },
+    "aspnet-api": {
+      "frontend": [
+        "react",
+        "angular"
+      ],
+      "transport": [
+        "library",
+        "websocket"
+      ]
+    },
+    "flask": {
+      "frontend": [
+        "server-templates",
+        "vue",
+        "react",
+        "angular"
+      ],
+      "transport": [
+        "sse",
+        "websocket"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app"
+      ]
+    },
+    "django": {
+      "frontend": [
+        "server-templates",
+        "vue",
+        "angular",
+        "react"
+      ],
+      "transport": [
+        "sse",
+        "websocket"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app",
+        "django-admin"
+      ]
+    },
+    "fastify": {
+      "frontend": [
+        "server-templates",
+        "vue",
+        "angular",
+        "react"
+      ],
+      "transport": [
+        "sse",
+        "library",
+        "websocket"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app",
+        "react-admin"
+      ]
+    },
+    "nestjs": {
+      "frontend": [
+        "server-templates",
+        "react",
+        "angular"
+      ],
+      "transport": [
+        "sse",
+        "websocket"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app"
+      ]
+    },
+    "quarkus": {
+      "frontend": [
+        "server-templates",
+        "angular",
+        "vue",
+        "react",
+        "vaadin"
+      ],
+      "transport": [
+        "sse",
+        "websocket"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app",
+        "vaadin-admin"
+      ]
+    },
+    "echo": {
+      "frontend": [
+        "react",
+        "server-templates",
+        "vue"
+      ],
+      "transport": [
+        "websocket"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app"
+      ]
+    },
+    "nethttp": {
+      "frontend": [
+        "vue",
+        "server-templates",
+        "react"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app"
+      ],
+      "transport": [
+        "sse",
+        "websocket"
+      ]
+    },
+    "gin": {
+      "frontend": [
+        "server-templates",
+        "angular"
+      ],
+      "transport": [
+        "sse"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app"
+      ]
+    },
+    "micronaut": {
+      "frontend": [
+        "server-templates",
+        "react",
+        "angular",
+        "vue"
+      ],
+      "transport": [
+        "sse",
+        "websocket"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app"
+      ]
+    },
+    "jakarta-ee": {
+      "frontend": [
+        "angular",
+        "vue",
+        "server-templates",
+        "react"
+      ],
+      "login": [
+        "own"
+      ],
+      "admin": [
+        "in-app"
+      ],
+      "transport": [
+        "websocket",
+        "sse"
+      ]
+    }
+  }
+}

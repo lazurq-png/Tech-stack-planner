@@ -1,0 +1,860 @@
+{
+  "framework": {
+    "why": "The framework provides the HTTP server integration, dependency injection, configuration and links to other libraries. In C++ terms, it's closer to a large application framework like Qt than to a small library.",
+    "start": "",
+    "options": [
+      {
+        "id": "spring-boot",
+        "name": "Spring Boot",
+        "sum": "The most widely used Java application framework.",
+        "pros": [
+          "Very large ecosystem of integrations",
+          "Easy to find documentation and help",
+          "Common skill in Java job listings",
+          "Auto-configuration removes most setup",
+          "Strong first-party support for data, security and testing"
+        ],
+        "cons": [
+          "Usually uses more memory than compile-time frameworks",
+          "Startup is slower without native compilation",
+          "Auto-configuration can feel like hidden behavior",
+          "Many wiring errors appear at startup, not compile time",
+          "Major versions rename things, as Boot 4 did"
+        ],
+        "url": "https://docs.spring.io/spring-boot/",
+        "start": true
+      },
+      {
+        "id": "quarkus",
+        "name": "Quarkus",
+        "sum": "A Java framework designed for containers, fast startup and native executables, backed by Red Hat.",
+        "pros": [
+          "Fast startup and low memory use",
+          "Strong support for native executables",
+          "Excellent live-reload development mode",
+          "Uses familiar Jakarta standards",
+          "Good fit for containers and scale-to-zero hosting"
+        ],
+        "cons": [
+          "Smaller ecosystem than Spring",
+          "Fewer tutorials and developers",
+          "Native builds are slow and need extra setup",
+          "Some libraries need Quarkus-specific extensions",
+          "Spring skills and libraries don't carry over directly"
+        ],
+        "url": "https://quarkus.io/guides/",
+        "start": false
+      },
+      {
+        "id": "micronaut",
+        "name": "Micronaut",
+        "sum": "A framework that does dependency injection at compile time.",
+        "pros": [
+          "Compile-time injection catches some errors earlier",
+          "Less runtime reflection",
+          "Fast startup and low memory use",
+          "Good native-image support",
+          "Clear, annotation-based programming model"
+        ],
+        "cons": [
+          "Smaller community than Spring or Quarkus",
+          "Fewer third-party integrations",
+          "Fewer learning resources",
+          "Annotation processing adds build-time work",
+          "Harder to hire for on a team"
+        ],
+        "url": "https://docs.micronaut.io/",
+        "start": false
+      },
+      {
+        "id": "jakarta-ee",
+        "name": "Jakarta EE",
+        "sum": "A vendor-neutral set of Java specifications, run on servers such as WildFly, Open Liberty or Payara.",
+        "pros": [
+          "Standard APIs from a vendor-neutral foundation",
+          "Several compatible implementations",
+          "Long-lived, stable programming model",
+          "Common in established enterprises",
+          "Concepts carry over to Quarkus and Spring"
+        ],
+        "cons": [
+          "Less convenient setup than Spring Boot",
+          "Slower feature evolution",
+          "Application servers add operational weight",
+          "Fewer modern starter-style integrations",
+          "Portability can still be limited by server-specific features"
+        ],
+        "url": "https://jakarta.ee/learn/",
+        "start": false
+      }
+    ]
+  },
+  "build": {
+    "why": "The build tool compiles the code, fetches libraries, runs tests and packages the app.",
+    "start": "",
+    "options": [
+      {
+        "id": "maven",
+        "name": "Maven",
+        "sum": "A declarative XML build with fixed lifecycle phases.",
+        "pros": [
+          "Predictable project structure and lifecycle",
+          "Easy for tools and developers to understand",
+          "Excellent framework and IDE support",
+          "Wrapper needs no admin install",
+          "Lots of documentation and plugins"
+        ],
+        "cons": [
+          "XML is verbose",
+          "Custom build logic is awkward",
+          "Often slower than Gradle on larger builds",
+          "Multi-module builds can become repetitive",
+          "Less flexible when the build doesn't fit its model"
+        ],
+        "url": "https://maven.apache.org/guides/",
+        "start": true
+      },
+      {
+        "id": "gradle",
+        "name": "Gradle",
+        "sum": "A build tool configured with a Kotlin or Groovy script.",
+        "pros": [
+          "Concise build files",
+          "Build cache and incremental builds can be fast",
+          "Handles custom logic well",
+          "Well suited to multi-project builds",
+          "Has a wrapper that needs no admin install"
+        ],
+        "cons": [
+          "Steeper learning curve",
+          "Build scripts are code that can become complex",
+          "Major upgrades can break plugins or scripts",
+          "Its background daemon uses memory",
+          "Builds vary more between projects"
+        ],
+        "url": "https://docs.gradle.org/",
+        "start": false
+      }
+    ]
+  },
+  "frontend": {
+    "why": "This decides how users see the site. In a server-rendered site, your backend produces the HTML. In a single-page app, JavaScript or TypeScript in the browser builds the page and calls your API.",
+    "start": "",
+    "options": [
+      {
+        "id": "react",
+        "name": "React",
+        "sum": "A very popular JavaScript library for building interfaces from components.",
+        "pros": [
+          "Very large ecosystem and job market",
+          "Good for highly interactive interfaces",
+          "Many component libraries",
+          "Large community and learning material",
+          "Frontend can be replaced without changing the backend"
+        ],
+        "cons": [
+          "Adds a second language and toolchain",
+          "You must choose routing and state tools",
+          "Needs a separate API and login flow",
+          "Dependency churn takes ongoing maintenance",
+          "Search visibility needs extra care for public pages"
+        ],
+        "url": "https://react.dev/learn",
+        "start": false
+      },
+      {
+        "id": "vue",
+        "name": "Vue",
+        "sum": "A component framework known for its gentle learning curve and single-file components.",
+        "pros": [
+          "Easier to start with than many alternatives",
+          "Clear single-file component structure",
+          "Official router and state libraries",
+          "Good documentation",
+          "Can be added gradually to existing pages"
+        ],
+        "cons": [
+          "Smaller job market than React",
+          "Fewer third-party libraries than React",
+          "Still adds a JavaScript toolchain",
+          "Still needs an API for a full single-page app",
+          "Less common in large enterprises than Angular or React"
+        ],
+        "url": "https://vuejs.org/guide/",
+        "start": false
+      },
+      {
+        "id": "angular",
+        "name": "Angular",
+        "sum": "A complete TypeScript framework with strong conventions.",
+        "pros": [
+          "Includes routing, forms and HTTP tools",
+          "TypeScript is standard",
+          "Dependency injection is built in",
+          "Strong conventions help larger teams",
+          "Common in enterprise projects"
+        ],
+        "cons": [
+          "Largest concept count of these options",
+          "More code for small screens",
+          "Regular upgrades need attention",
+          "Heavy for a simple admin app",
+          "Needs a separate API and frontend build"
+        ],
+        "url": "https://angular.dev/overview",
+        "start": false
+      },
+      {
+        "id": "thymeleaf",
+        "name": "Thymeleaf with htmx",
+        "sum": "Java renders HTML templates, while htmx updates parts of a page from HTML attributes without much custom JavaScript.",
+        "pros": [
+          "Keeps most logic in Java",
+          "One app, one build and one deployment",
+          "Session login is simple",
+          "Spring Boot has a Thymeleaf starter",
+          "Small amount of JavaScript to maintain"
+        ],
+        "cons": [
+          "Not ideal for very rich browser interactions",
+          "Offline behavior is difficult",
+          "Mobile apps can't reuse HTML endpoints like an API",
+          "Fewer ready-made rich components",
+          "Interaction logic can spread across templates and controllers"
+        ],
+        "url": "https://www.thymeleaf.org/documentation.html",
+        "start": true
+      },
+      {
+        "id": "vaadin",
+        "name": "Vaadin",
+        "sum": "A framework for writing web interfaces in Java components, with server-side state. Vaadin 25 supports Spring Boot 4.",
+        "pros": [
+          "Write most of the interface in Java",
+          "Strong forms and data grids",
+          "Very productive for internal tools",
+          "Integrates with Spring",
+          "Less need to design a separate API"
+        ],
+        "cons": [
+          "Server-side UI state uses memory per user",
+          "Less suited to public, content-heavy sites",
+          "Custom designs can take more effort",
+          "Stronger framework lock-in",
+          "Some tools and components may need a paid plan, so check the license"
+        ],
+        "url": "https://vaadin.com/docs/latest/",
+        "start": false
+      }
+    ]
+  },
+  "api": {
+    "why": "This decides how the frontend and other clients talk to the backend. If Java renders your pages, you may not need a public API at all.",
+    "start": "",
+    "options": [
+      {
+        "id": "server",
+        "name": "Server-rendered pages",
+        "sum": "Controllers return HTML and forms post back to the server. No public API is needed.",
+        "pros": [
+          "Fewest moving parts",
+          "No API contract to keep in sync",
+          "Session cookies work naturally",
+          "Fast to build common forms and tables",
+          "Fits Thymeleaf with htmx"
+        ],
+        "cons": [
+          "Other clients can't reuse the endpoints easily",
+          "Couples the interface to the backend",
+          "Rich interactions are harder",
+          "Adding a mobile app later means adding an API",
+          "Testing HTML is less convenient than testing JSON"
+        ],
+        "url": "https://htmx.org/docs/",
+        "start": true
+      },
+      {
+        "id": "rest",
+        "name": "REST with OpenAPI",
+        "sum": "Resources over HTTP, usually using JSON, documented by an OpenAPI description.",
+        "pros": [
+          "Understood by almost every client and developer",
+          "Works with standard HTTP tools such as curl",
+          "HTTP caching can apply",
+          "OpenAPI can generate docs and clients",
+          "Very widely understood"
+        ],
+        "cons": [
+          "Clients can receive too much or too little data",
+          "Some screens need several calls",
+          "Versioning needs a clear policy",
+          "Conventions vary without a strict design",
+          "The documentation can drift without tooling"
+        ],
+        "url": "https://spec.openapis.org/",
+        "start": false
+      },
+      {
+        "id": "graphql",
+        "name": "GraphQL",
+        "sum": "Clients send a query for exactly the fields they need.",
+        "pros": [
+          "Clients request exactly the fields they need",
+          "One request can fetch related data",
+          "A typed schema documents the API",
+          "Helps when many different clients need different data",
+          "Good developer tooling"
+        ],
+        "cons": [
+          "More concepts than REST",
+          "Standard HTTP caching is harder",
+          "Unbounded queries need protection",
+          "The N+1 query problem needs active handling",
+          "Overkill for a simple CRUD app"
+        ],
+        "url": "https://graphql.org/learn/",
+        "start": false
+      },
+      {
+        "id": "grpc",
+        "name": "gRPC",
+        "sum": "A compact binary RPC protocol using Protocol Buffers, comparable to generated C++ client and server stubs. Boot 4.1.2 has no <code>spring-boot-starter-grpc</code>, so it needs a separate integration.",
+        "pros": [
+          "Compact messages and efficient calls",
+          "Strong generated contracts",
+          "Generates clients for many languages, including C++",
+          "Supports streaming",
+          "Excellent for service-to-service calls"
+        ],
+        "cons": [
+          "Browsers can't call native gRPC directly",
+          "Usually needs a proxy or gateway for web clients",
+          "Harder to inspect than JSON",
+          "Adds code generation to the build",
+          "Poor fit for a single common web app"
+        ],
+        "url": "https://grpc.io/docs/",
+        "start": false
+      }
+    ]
+  },
+  "database": {
+    "why": "The database holds your persistent data.",
+    "start": "",
+    "options": [
+      {
+        "id": "postgresql",
+        "name": "PostgreSQL",
+        "sum": "A powerful open-source relational database.",
+        "pros": [
+          "Strong SQL and data integrity features",
+          "Permissive open-source license",
+          "Good JSON support alongside relational tables",
+          "Widely offered as a managed service",
+          "Very large community and tooling"
+        ],
+        "cons": [
+          "Vacuuming and tuning need some understanding",
+          "Connection pooling matters under load",
+          "Horizontal write scaling needs extra tooling",
+          "Major version upgrades need planning",
+          "More features than a very small app may use"
+        ],
+        "url": "https://www.postgresql.org/docs/",
+        "start": true
+      },
+      {
+        "id": "mysql",
+        "name": "MySQL or MariaDB",
+        "sum": "Very widely deployed relational databases. MariaDB began as a fork of MySQL, and they have since diverged.",
+        "pros": [
+          "Widely available from hosting providers",
+          "Large community and tooling",
+          "Mature replication options",
+          "Spring Boot manages both drivers",
+          "Simple setup for common applications"
+        ],
+        "cons": [
+          "Fewer advanced SQL features than PostgreSQL",
+          "MySQL and MariaDB differ, so compatibility isn't guaranteed",
+          "Oracle controls MySQL's direction, and its public development has slowed",
+          "MySQL's GPL or commercial licensing can need review if you distribute it",
+          "Storage engine and configuration choices can affect behavior"
+        ],
+        "url": "https://dev.mysql.com/doc/",
+        "start": false
+      },
+      {
+        "id": "sqlserver",
+        "name": "SQL Server",
+        "sum": "Microsoft's relational database, common in organizations that already use Microsoft products.",
+        "pros": [
+          "Mature tools and administration",
+          "Strong integration with Microsoft products",
+          "Good managed option on Azure",
+          "Spring Boot manages the JDBC driver",
+          "Strong enterprise support"
+        ],
+        "cons": [
+          "Paid editions can be expensive",
+          "Free Express edition has limits",
+          "Best tooling is on Microsoft platforms",
+          "Free jOOQ edition doesn't support it",
+          "Stronger vendor lock-in"
+        ],
+        "url": "https://learn.microsoft.com/en-us/sql/sql-server/",
+        "start": false
+      },
+      {
+        "id": "mongodb",
+        "name": "MongoDB",
+        "sum": "A document database that stores flexible, JSON-like records instead of relational tables.",
+        "pros": [
+          "Flexible document structure",
+          "Natural fit for nested data",
+          "Built-in scale-out through sharding",
+          "Spring Data MongoDB is available",
+          "Managed Atlas service reduces setup"
+        ],
+        "cons": [
+          "Relational data needs careful document design",
+          "Joins are less natural than in SQL",
+          "Flexible schemas can hide inconsistent data",
+          "Rules out JPA, jOOQ and SQL-based migrations",
+          "SSPL isn't an OSI-approved open-source license"
+        ],
+        "url": "https://www.mongodb.com/docs/",
+        "start": false
+      },
+      {
+        "id": "h2",
+        "name": "H2",
+        "sum": "A small Java database that runs inside your app. It's best for learning and quick experiments, not production.",
+        "pros": [
+          "Nothing to install or start",
+          "Added as one dependency",
+          "Starts instantly",
+          "Includes a browser console",
+          "Can imitate some other databases' SQL"
+        ],
+        "cons": [
+          "In-memory data disappears on restart",
+          "Not meant for production apps",
+          "SQL differs from your eventual database",
+          "One app process owns the in-memory database",
+          "Few hosting providers offer it, because it runs inside your app"
+        ],
+        "url": "https://www.h2database.com/html/main.html",
+        "start": false
+      }
+    ]
+  },
+  "data": {
+    "why": "This decides how Java talks to a relational database. The tradeoff is between writing less SQL and controlling exactly what runs.",
+    "start": "",
+    "options": [
+      {
+        "id": "jpa",
+        "name": "Spring Data JPA with Hibernate",
+        "sum": "Maps objects to rows and generates common SQL.",
+        "pros": [
+          "Very little code for common operations",
+          "Queries can come from method names",
+          "Widely used with Spring",
+          "Handles relationships and change tracking",
+          "Many tutorials and examples"
+        ],
+        "cons": [
+          "Generated SQL can be surprising",
+          "Accidental N+1 queries are common",
+          "Lazy loading and sessions take time to understand",
+          "Complex reports fit it poorly",
+          "Entities must follow framework rules"
+        ],
+        "url": "https://docs.spring.io/spring-data/jpa/reference/",
+        "start": true
+      },
+      {
+        "id": "jdbc",
+        "name": "Spring Data JDBC",
+        "sum": "A simpler Spring Data option without lazy loading, a persistence context or automatic change tracking.",
+        "pros": [
+          "Easier mental model than JPA",
+          "You call <code>save</code> explicitly",
+          "No lazy loading surprises",
+          "Keeps familiar repository interfaces",
+          "Has a Spring Boot starter"
+        ],
+        "cons": [
+          "Fewer relationship features",
+          "You write more custom SQL",
+          "No automatic table generation from entities",
+          "Smaller community than JPA",
+          "Aggregate design needs thought"
+        ],
+        "url": "https://docs.spring.io/spring-data/relational/reference/",
+        "start": false
+      },
+      {
+        "id": "jooq",
+        "name": "jOOQ",
+        "sum": "Generates Java from your schema so you can write type-checked SQL in Java, a bit like getting compiler errors for query mistakes.",
+        "pros": [
+          "Compile-time checks for many query mistakes",
+          "Full control of SQL",
+          "Excellent for complex queries and reports",
+          "Uses database-specific features well",
+          "Has a Spring Boot starter"
+        ],
+        "cons": [
+          "Adds a code generation step",
+          "You must know SQL well",
+          "More code for simple CRUD",
+          "Doesn't manage object relationships like JPA",
+          "Oracle and SQL Server need a commercial edition"
+        ],
+        "url": "https://www.jooq.org/doc/latest/manual/",
+        "start": false
+      },
+      {
+        "id": "mybatis",
+        "name": "MyBatis",
+        "sum": "Maps hand-written SQL, in annotations or XML, to Java objects.",
+        "pros": [
+          "Direct control over SQL",
+          "Good for existing or unusual schemas",
+          "Less hidden behavior than JPA",
+          "Dynamic SQL support",
+          "Established and stable"
+        ],
+        "cons": [
+          "You write most queries yourself",
+          "Many SQL errors appear only at runtime",
+          "XML mappers can become large",
+          "Spring integration comes from the MyBatis project",
+          "Repetitive for simple CRUD"
+        ],
+        "url": "https://mybatis.org/mybatis-3/",
+        "start": false
+      }
+    ]
+  },
+  "migrations": {
+    "why": "Migrations are versioned changes to your tables. They do for the database what Git does for source code: everyone can get from one known version to the next.",
+    "start": "",
+    "options": [
+      {
+        "id": "flyway",
+        "name": "Flyway",
+        "sum": "Runs numbered migration files, normally plain SQL, in order. Spring Boot provides <code>spring-boot-starter-flyway</code>.",
+        "pros": [
+          "Very simple numbered-file model",
+          "Plain SQL is easy to review",
+          "Runs automatically at app startup",
+          "Clear migration history table",
+          "Spring Boot manages its version"
+        ],
+        "cons": [
+          "Undo migrations need a paid edition",
+          "SQL is often database-specific",
+          "Applied files shouldn't be edited",
+          "Branches can create version conflicts",
+          "PostgreSQL needs an extra database module"
+        ],
+        "url": "https://documentation.red-gate.com/flyway",
+        "start": true
+      },
+      {
+        "id": "liquibase",
+        "name": "Liquibase",
+        "sum": "Tracks changes in XML, YAML, JSON or SQL changelogs, with more database-independent options.",
+        "pros": [
+          "Can describe changes independently of the database",
+          "Built-in rollback concepts",
+          "Preconditions can guard changes",
+          "Multiple changelog formats",
+          "Spring Boot manages its version"
+        ],
+        "cons": [
+          "More concepts than Flyway",
+          "Changelogs can become verbose",
+          "Version 5 uses the FSL, which isn't OSI open source",
+          "Abstractions can hide the exact SQL",
+          "Automatic rollback doesn't cover every change"
+        ],
+        "url": "https://docs.liquibase.com/",
+        "start": false
+      }
+    ]
+  },
+  "login": {
+    "why": "Login has two parts: authentication proves who someone is, and authorization decides what they can do. Whatever you choose for authentication, your app still needs rules such as \"only admins can open this page.\"",
+    "start": "",
+    "options": [
+      {
+        "id": "spring-security",
+        "name": "Spring Security with your own users",
+        "sum": "Your app stores users and password hashes and uses server sessions.",
+        "pros": [
+          "No extra service or monthly vendor bill",
+          "Full control of login pages and user data",
+          "Excellent fit for server-rendered pages",
+          "Simple role checks with Spring Security",
+          "Teaches core security concepts"
+        ],
+        "cons": [
+          "You're responsible for stored credentials",
+          "You must build password reset flows",
+          "Multi-factor login takes extra work",
+          "Social login takes extra work",
+          "Single sign-on across apps isn't included"
+        ],
+        "url": "https://docs.spring.io/spring-security/reference/",
+        "start": true
+      },
+      {
+        "id": "keycloak",
+        "name": "Keycloak",
+        "sum": "An open-source identity server you run yourself. Your app signs users in through OpenID Connect. It runs from a ZIP on a supported JDK.",
+        "pros": [
+          "Open source with no per-user fee",
+          "Includes multi-factor and social login",
+          "Has its own user administration console",
+          "Supports OpenID Connect and SAML",
+          "Keeps user data on infrastructure you control"
+        ],
+        "cons": [
+          "One more service to run and secure",
+          "Needs its own production database",
+          "You handle upgrades and backups",
+          "Many concepts for a small app",
+          "Theme customization takes effort"
+        ],
+        "url": "https://www.keycloak.org/documentation",
+        "start": false
+      },
+      {
+        "id": "auth0",
+        "name": "Auth0",
+        "sum": "A hosted identity service. Its pricing page lists a free plan of up to 25,000 monthly active users, with limits on features.",
+        "pros": [
+          "Fast to set up",
+          "Vendor handles identity infrastructure",
+          "Multi-factor and social login are available",
+          "Good documentation and SDKs",
+          "Free tier can cover a small project"
+        ],
+        "cons": [
+          "Costs can rise with users and features",
+          "Harder to migrate away from later",
+          "Outages can stop people logging in",
+          "User data sits with a third party",
+          "Plans and limits can change"
+        ],
+        "url": "https://auth0.com/docs",
+        "start": false
+      },
+      {
+        "id": "entra",
+        "name": "Microsoft Entra External ID",
+        "sum": "Microsoft's hosted customer identity service. Its core offering is free for the first 50,000 monthly active users, while premium add-ons cost extra.",
+        "pros": [
+          "Fits organizations already using Microsoft",
+          "Generous core free tier",
+          "Vendor handles identity infrastructure",
+          "Supports standard OpenID Connect",
+          "Enterprise-grade security features are available"
+        ],
+        "cons": [
+          "Tied to Microsoft's cloud",
+          "Portal and concepts can feel complex",
+          "Some security features are paid add-ons",
+          "Fewer independent tutorials than Auth0 or Keycloak",
+          "Harder to migrate away from later"
+        ],
+        "url": "https://learn.microsoft.com/en-us/entra/external-id/",
+        "start": false
+      }
+    ]
+  },
+  "admin": {
+    "why": "This is the area where trusted staff manage users and business data. Whichever option you choose, enforce admin permissions on the server, not only in the interface.",
+    "start": "",
+    "options": [
+      {
+        "id": "in-app",
+        "name": "Pages in your app",
+        "sum": "Build admin screens with the same frontend as the rest of the app, under a path such as <code>/admin</code>.",
+        "pros": [
+          "Full control over screens and workflows",
+          "Reuses your login, roles and business logic",
+          "No extra platform or license",
+          "One deployment",
+          "Good practice for learning your framework"
+        ],
+        "cons": [
+          "You build every screen",
+          "Tables, filters and exports take time",
+          "Admin bugs can affect the main app",
+          "Shared deployment means a shared release cycle",
+          "Needs its own tests and audit logging"
+        ],
+        "url": null,
+        "start": true
+      },
+      {
+        "id": "react-admin",
+        "name": "React-admin",
+        "sum": "A React framework for building admin interfaces on top of an API.",
+        "pros": [
+          "Ready-made lists, forms and filters",
+          "Much faster than building each screen",
+          "Can connect to your own REST API",
+          "Customizable with React components",
+          "Keeps business logic behind your API"
+        ],
+        "cons": [
+          "Requires React and JavaScript skills",
+          "Requires a well-designed API",
+          "Adds a separate frontend build",
+          "Customization outside its patterns can be hard",
+          "Some advanced modules are paid"
+        ],
+        "url": "https://marmelab.com/react-admin/documentation.html",
+        "start": false
+      },
+      {
+        "id": "vaadin-admin",
+        "name": "Vaadin admin views",
+        "sum": "Build admin screens in Java with data grids and forms, even if the public site uses something else.",
+        "pros": [
+          "Stays almost entirely in Java",
+          "Strong grid and form components",
+          "Quick to build internal tools",
+          "Can call your Spring services directly",
+          "Few admin users limits its memory concern"
+        ],
+        "cons": [
+          "Adds a substantial dependency",
+          "Different interface model from the rest of the app",
+          "Some features may need a paid plan",
+          "Upgrades can require code changes",
+          "Ties your admin area to one vendor's framework"
+        ],
+        "url": "https://vaadin.com/docs/latest/",
+        "start": false
+      },
+      {
+        "id": "low-code",
+        "name": "Retool or Appsmith",
+        "sum": "Low-code tools for assembling internal interfaces from databases and APIs.",
+        "pros": [
+          "Very fast to create internal tools",
+          "Little frontend code",
+          "Built-in tables and forms",
+          "Connects to APIs and databases",
+          "Non-specialists can adjust some screens"
+        ],
+        "cons": [
+          "Direct database access can bypass business rules",
+          "Extra platform to pay for or host",
+          "Harder to version and test like normal code",
+          "Vendor lock-in",
+          "Teaches you little about your framework"
+        ],
+        "url": "https://docs.appsmith.com/",
+        "start": false
+      }
+    ]
+  },
+  "hosting": {
+    "why": "This decides where the app and database run in production. Cost and limits vary by provider, so compare current pricing before you write the ADR.",
+    "start": "",
+    "options": [
+      {
+        "id": "paas",
+        "name": "Platform as a service",
+        "sum": "Services such as Render, Railway or Fly.io build and run your app from your Git repository or container image.",
+        "pros": [
+          "Fastest route to production",
+          "Handles servers and HTTPS for you",
+          "Easy deployments from Git",
+          "Managed database options are common",
+          "Little operations knowledge needed"
+        ],
+        "cons": [
+          "Usually costs more per resource at scale",
+          "Less control over the environment",
+          "Provider limits can affect your design",
+          "Migration takes work if you outgrow it",
+          "Data region options may be limited"
+        ],
+        "url": "https://render.com/docs",
+        "start": true
+      },
+      {
+        "id": "containers",
+        "name": "Managed containers",
+        "sum": "Services such as Azure Container Apps, AWS ECS or Google Cloud Run run your container without you managing Kubernetes.",
+        "pros": [
+          "Scales well beyond a small app",
+          "Integrates with cloud networking and identity",
+          "Less cluster work than Kubernetes",
+          "Managed databases sit in the same cloud",
+          "Portable container images"
+        ],
+        "cons": [
+          "Cloud permissions and networking are complex",
+          "Bills can be hard to predict",
+          "More setup than a platform service",
+          "Cloud-specific configuration causes lock-in",
+          "Slow JVM startup can matter when scaling from zero"
+        ],
+        "url": "https://learn.microsoft.com/en-us/azure/container-apps/",
+        "start": false
+      },
+      {
+        "id": "vps",
+        "name": "A virtual private server",
+        "sum": "Rent one Linux server and run your jar or Docker Compose yourself.",
+        "pros": [
+          "Predictable monthly cost",
+          "Full control of the machine",
+          "Great way to learn Linux and networking",
+          "Simple single-server setup",
+          "Low lock-in"
+        ],
+        "cons": [
+          "You handle security patches",
+          "You handle backups and monitoring",
+          "One server is a single point of failure",
+          "Scaling is largely manual",
+          "Mistakes can expose the app or its data"
+        ],
+        "url": "https://caddyserver.com/docs/",
+        "start": false
+      },
+      {
+        "id": "kubernetes",
+        "name": "Kubernetes",
+        "sum": "A system for running many containers across many machines, usually through a managed service.",
+        "pros": [
+          "Handles restarts, rollouts and scaling",
+          "Works across cloud providers",
+          "Huge tool ecosystem",
+          "Suits many services and large teams",
+          "Valuable skill in larger organizations"
+        ],
+        "cons": [
+          "Far too complex for one small web app",
+          "Ongoing operational work and upgrades",
+          "Cluster costs add up",
+          "Security configuration is easy to get wrong",
+          "Local setup adds another tool to learn"
+        ],
+        "url": "https://kubernetes.io/docs/home/",
+        "start": false
+      }
+    ]
+  }
+}

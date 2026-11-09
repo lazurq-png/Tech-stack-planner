@@ -1,0 +1,322 @@
+{
+  "checked": "2026-11-09",
+  "sources": {
+    "python|database:sqlserver": {
+      "src": "SQLAlchemy SQL Server dialect, with pymssql",
+      "u": "https://docs.sqlalchemy.org/21/dialects/mssql.html",
+      "how": "release",
+      "ver": "SQLAlchemy 2.1.8",
+      "d": "2026-11-03"
+    },
+    "django|database:sqlserver": {
+      "src": "Microsoft's mssql-django",
+      "u": "https://github.com/microsoft/mssql-django",
+      "how": "release",
+      "ver": "mssql-django 2.0, for Django 5.2 to 6.1",
+      "d": "2026-09-18"
+    },
+    "prisma|database:sqlserver": {
+      "src": "Prisma SQL Server guide, with @prisma/adapter-mssql",
+      "u": "https://www.prisma.io/docs/orm/overview/databases/sql-server",
+      "how": "release",
+      "ver": "Prisma 7.10.1",
+      "d": "2026-10-19"
+    },
+    "typeorm|database:sqlserver": {
+      "src": "TypeORM SQL Server driver",
+      "u": "https://typeorm.io/docs/drivers/microsoft-sqlserver",
+      "how": "release",
+      "ver": "TypeORM 1.1.2",
+      "d": "2026-10-08"
+    },
+    "kysely|database:sqlserver": {
+      "src": "Kysely's built-in SQL Server dialect",
+      "u": "https://kysely.dev/docs/dialects",
+      "how": "release",
+      "ver": "Kysely 0.29.8",
+      "d": "2026-11-01"
+    },
+    "typescript|database:sqlserver": {
+      "src": "node-mssql, built on tedious",
+      "u": "https://tediousjs.github.io/node-mssql/",
+      "how": "release",
+      "ver": "mssql 12.7.14",
+      "d": "2026-11-04"
+    },
+    "csharp|database:sqlserver": {
+      "src": "EF Core SQL Server provider, which uses Microsoft.Data.SqlClient",
+      "u": "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/",
+      "how": "updated",
+      "d": "2026-06-09"
+    },
+    "gorm|database:sqlserver": {
+      "src": "GORM, which officially supports SQL Server",
+      "u": "https://gorm.io/docs/connecting_to_the_database.html",
+      "how": "release",
+      "ver": "gorm.io/driver/sqlserver 1.6.4",
+      "d": "2026-07-31"
+    },
+    "go|database:sqlserver": {
+      "src": "Microsoft's go-mssqldb driver",
+      "u": "https://github.com/microsoft/go-mssqldb",
+      "how": "release",
+      "ver": "go-mssqldb 1.11.2",
+      "d": "2026-09-23"
+    },
+    "quarkus|database:sqlserver": {
+      "src": "Quarkus datasource guide, with quarkus-jdbc-mssql",
+      "u": "https://quarkus.io/guides/datasource",
+      "how": "release",
+      "ver": "Quarkus 3.40 docs",
+      "d": "2026-11-04"
+    },
+    "micronaut|database:sqlserver": {
+      "src": "Micronaut Data's SQL_SERVER dialect",
+      "u": "https://micronaut-projects.github.io/micronaut-data/latest/api/io/micronaut/data/model/query/builder/sql/Dialect.html",
+      "how": "release",
+      "ver": "Micronaut Data 5.2.5",
+      "d": "2026-11-06"
+    },
+    "jakarta-ee|database:sqlserver": {
+      "src": "Open Liberty JDBC guide, with a SQL Server sample",
+      "u": "https://openliberty.io/docs/latest/relational-database-connections-JDBC.html",
+      "how": "release",
+      "ver": "Open Liberty 26.0.0.11 docs",
+      "d": "2026-11-04"
+    },
+    "spring-boot|database:sqlserver": {
+      "src": "Flyway SQL Server guide, with the mssql-jdbc driver",
+      "u": "https://documentation.red-gate.com/flyway/reference/database-driver-reference/sql-server-database",
+      "how": "updated",
+      "d": "2026-11-05"
+    },
+    "migrations:atlas+sqlserver": {
+      "src": "Atlas features page, which puts SQL Server in the paid Pro Plan",
+      "u": "https://atlasgo.io/features",
+      "how": "checked",
+      "d": "2026-11-09"
+    },
+    "migrations:goose+sqlserver": {
+      "src": "goose, which lists MSSQL",
+      "u": "https://github.com/pressly/goose",
+      "how": "release",
+      "ver": "goose 3.29.0",
+      "d": "2026-10-11"
+    },
+    "migrations:golang-migrate+sqlserver": {
+      "src": "golang-migrate, which lists MS SQL Server",
+      "u": "https://github.com/golang-migrate/migrate",
+      "how": "release",
+      "ver": "migrate 4.20.1",
+      "d": "2026-09-09"
+    },
+    "migrations:flyway-any+sqlserver": {
+      "src": "Flyway SQL Server guide",
+      "u": "https://documentation.red-gate.com/flyway/reference/database-driver-reference/sql-server-database",
+      "how": "updated",
+      "d": "2026-11-05"
+    },
+    "migrations:node-pg-migrate": {
+      "src": "node-pg-migrate docs",
+      "u": "https://salsita.github.io/node-pg-migrate/",
+      "how": "release",
+      "ver": "node-pg-migrate 9.0.0",
+      "d": "2026-07-17"
+    },
+    "login:keycloak": {
+      "src": "Keycloak's OpenID Connect guide. The guide signs in with standard OpenID Connect",
+      "u": "https://www.keycloak.org/securing-apps/oidc-layers",
+      "how": "release",
+      "ver": "Keycloak 26.8 docs",
+      "d": "2026-11-09"
+    },
+    "login:auth0": {
+      "src": "Auth0's OpenID Connect docs. The guide signs in with standard OpenID Connect",
+      "u": "https://auth0.com/docs/authenticate/protocols/openid-connect-protocol",
+      "how": "checked",
+      "d": "2026-11-09"
+    },
+    "login:entra": {
+      "src": "Microsoft Entra External ID features, which include OpenID Connect",
+      "u": "https://learn.microsoft.com/en-us/entra/external-id/customers/concept-supported-features-customers",
+      "how": "updated",
+      "d": "2026-09-02"
+    },
+    "payment:stripe": {
+      "src": "Stripe Checkout docs. The guide calls its REST API directly",
+      "u": "https://docs.stripe.com/payments/checkout/how-checkout-works",
+      "how": "checked",
+      "d": "2026-11-09"
+    },
+    "payment:klarna": {
+      "src": "Klarna Hosted Payment Page docs. The guide calls its REST API directly",
+      "u": "https://docs.klarna.com/acquirer/klarna/web-payments/integrate-with-klarna-payments/integrate-via-hpp/before-you-start/accept-klarna-payments-using-hosted-payment-page/",
+      "how": "checked",
+      "d": "2026-11-09"
+    },
+    "payment:adyen": {
+      "src": "Adyen Pay by Link API docs. The guide calls POST /paymentLinks directly",
+      "u": "https://docs.adyen.com/unified-commerce/pay-by-link/create-payment-links/api",
+      "how": "checked",
+      "d": "2026-11-09"
+    },
+    "payment:paypal": {
+      "src": "PayPal Orders v2 API. The guide calls its REST API directly",
+      "u": "https://developer.paypal.com/docs/api/orders/v2/",
+      "how": "checked",
+      "d": "2026-11-09"
+    },
+    "transport:managed": {
+      "src": "Ably token authentication docs, with server examples for Go, Python, Java and JavaScript",
+      "u": "https://ably.com/docs/auth/token",
+      "how": "checked",
+      "d": "2026-11-09"
+    },
+    "admin:low-code": {
+      "src": "Appsmith data source docs (Retool's are similar), which connect to these databases directly",
+      "u": "https://docs.appsmith.com/connect-data/reference",
+      "how": "checked",
+      "d": "2026-11-09"
+    },
+    "admin:react-admin": {
+      "src": "react-admin docs",
+      "u": "https://marmelab.com/react-admin/documentation.html",
+      "how": "release",
+      "ver": "react-admin 5.15.6",
+      "d": "2026-11-07"
+    },
+    "admin:vaadin-admin": {
+      "src": "Vaadin docs, with its Spring Boot starter",
+      "u": "https://vaadin.com/docs/latest",
+      "how": "release",
+      "ver": "Vaadin 25.3.5",
+      "d": "2026-11-03"
+    },
+    "frontend:vaadin": {
+      "src": "Vaadin docs, with its Spring Boot starter",
+      "u": "https://vaadin.com/docs/latest",
+      "how": "release",
+      "ver": "Vaadin 25.3.5",
+      "d": "2026-11-03"
+    },
+    "csharp|frontend:react": {
+      "src": "ASP.NET Core single-page app overview",
+      "u": "https://learn.microsoft.com/en-us/aspnet/core/client-side/spa/intro",
+      "how": "updated",
+      "d": "2026-10-30"
+    },
+    "csharp|frontend:vue": {
+      "src": "ASP.NET Core single-page app overview",
+      "u": "https://learn.microsoft.com/en-us/aspnet/core/client-side/spa/intro",
+      "how": "updated",
+      "d": "2026-10-30"
+    },
+    "csharp|frontend:angular": {
+      "src": "ASP.NET Core single-page app overview",
+      "u": "https://learn.microsoft.com/en-us/aspnet/core/client-side/spa/intro",
+      "how": "updated",
+      "d": "2026-10-30"
+    },
+    "frontendLanguage:typescript": {
+      "src": "Vite guide, whose create-vite tool has TypeScript templates such as react-ts and vue-ts",
+      "u": "https://vite.dev/guide/",
+      "how": "release",
+      "ver": "create-vite 9.3.4",
+      "d": "2026-11-05"
+    },
+    "frontendLanguage:javascript": {
+      "src": "Vite guide, whose create-vite tool has JavaScript templates such as react and vue",
+      "u": "https://vite.dev/guide/",
+      "how": "release",
+      "ver": "create-vite 9.3.4",
+      "d": "2026-11-05"
+    },
+    "nextjs|api:server": {
+      "src": "Next.js guide to forms with Server Actions",
+      "u": "https://nextjs.org/docs/app/guides/forms",
+      "how": "updated",
+      "d": "2026-10-06"
+    },
+    "spring-boot|build:gradle": {
+      "src": "Spring Boot Gradle plugin docs",
+      "u": "https://docs.spring.io/spring-boot/gradle-plugin/index.html",
+      "how": "release",
+      "ver": "Spring Boot 4.1.2 docs",
+      "d": "2026-11-09"
+    },
+    "spring-boot|login:keycloak": {
+      "src": "Keycloak's OpenID Connect guide, used through Spring Security's OAuth2 client",
+      "u": "https://www.keycloak.org/securing-apps/oidc-layers",
+      "how": "release",
+      "ver": "Keycloak 26.8 docs",
+      "d": "2026-11-09"
+    },
+    "migrations:ef-migrations+sqlserver": {
+      "src": "EF Core migrations, which run through the SQL Server provider",
+      "u": "https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/",
+      "how": "updated",
+      "d": "2026-08-05"
+    },
+    "migrations:fluentmigrator+sqlserver": {
+      "src": "FluentMigrator, which lists SQL Server",
+      "u": "https://fluentmigrator.github.io/",
+      "how": "release",
+      "ver": "FluentMigrator.Runner.SqlServer 8.0.1",
+      "d": "2026-01-21"
+    },
+    "migrations:dbup+sqlserver": {
+      "src": "DbUp, built for SQL Server",
+      "u": "https://dbup.readthedocs.io/en/latest/",
+      "how": "release",
+      "ver": "dbup-sqlserver 7.2.0",
+      "d": "2026-02-24"
+    },
+    "migrations:flyway+sqlserver": {
+      "src": "Flyway SQL Server guide",
+      "u": "https://documentation.red-gate.com/flyway/reference/database-driver-reference/sql-server-database",
+      "how": "updated",
+      "d": "2026-11-05"
+    },
+    "migrations:liquibase+sqlserver": {
+      "src": "Liquibase open-source guide for SQL Server",
+      "u": "https://docs.liquibase.com/oss/integration-guide-4-33/connect-liquibase-with-microsoft-sql-server",
+      "how": "updated",
+      "d": "2026-07-13"
+    },
+    "migrations:django-migrations+sqlserver": {
+      "src": "Microsoft's mssql-django, the database backend Django's migrations run through",
+      "u": "https://github.com/microsoft/mssql-django",
+      "how": "release",
+      "ver": "mssql-django 2.0",
+      "d": "2026-09-18"
+    },
+    "migrations:alembic+sqlserver": {
+      "src": "Alembic, which runs on SQLAlchemy's SQL Server dialect",
+      "u": "https://alembic.sqlalchemy.org/en/latest/",
+      "how": "release",
+      "ver": "Alembic 1.20.1",
+      "d": "2026-10-22"
+    },
+    "migrations:prisma-migrate+sqlserver": {
+      "src": "Prisma 7 supported databases, which include SQL Server 2017 to 2022",
+      "u": "https://www.prisma.io/docs/orm/v7/reference/supported-databases",
+      "how": "release",
+      "ver": "Prisma 7.10.1",
+      "d": "2026-10-19"
+    },
+    "spring-boot|transport:websocket": {
+      "src": "Spring Framework WebSocket reference",
+      "u": "https://docs.spring.io/spring-framework/reference/web/websocket.html",
+      "how": "release",
+      "ver": "Spring Framework 7.0.10 docs",
+      "d": "2026-11-09"
+    },
+    "spring-boot|transport:sse": {
+      "src": "Spring Framework's SseEmitter for Server-Sent Events",
+      "u": "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-async.html",
+      "how": "release",
+      "ver": "Spring Framework 7.0.10 docs",
+      "d": "2026-11-09"
+    }
+  }
+}

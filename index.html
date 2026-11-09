@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tech Stack Planner</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<div class="shell">
+<aside id="stage-panel" aria-label="Your steps"></aside>
+<main>
+<header class="top">
+<h1>Tech Stack Planner</h1>
+<p class="lede">Answer one question at a time to choose the technologies for a game or website. Each suggestion is based on your earlier answers, what works best for them, and what is easiest to develop with.</p>
+</header>
+
+<p class="part" style="margin-top:32px">Part 1</p>
+<h2 id="stack">Choose your project</h2>
+<p>Answer one question at a time. Each answer decides what comes next, and later questions stay hidden until the ones before them are answered. Changing an answer clears the choices after it. Your answers stay in this browser.</p>
+<details class="model"><summary>How the questions are ordered</summary>
+<p>Every route follows the same eight stages. A stage that doesn't apply is skipped, and the page tells you why.</p>
+<ol class="plain">
+<li><strong>Product:</strong> game or website.</li>
+<li><strong>Requirements:</strong> what it must do, such as login, selling or online play. No technology yet.</li>
+<li><strong>Approach:</strong> use an existing platform or engine, or build your own. For a game, this includes its language.</li>
+<li><strong>Backend:</strong> language, then framework, because every later library depends on them.</li>
+<li><strong>Interface:</strong> what users see, then how it talks to the backend.</li>
+<li><strong>Data:</strong> saved games for a game. For a server, the database, then the library that uses it, then how its structure changes.</li>
+<li><strong>Services:</strong> login, admin, payments and game features such as achievements and crash reports, which all build on your data.</li>
+<li><strong>Delivery:</strong> hosting and stores, last because they must run everything above.</li>
+</ol>
+<p>Three rules set the order: requirements come before technology, a choice can only limit the questions after it, and the choices hardest to change come first.</p>
+</details>
+<div id="flow"></div>
+<div class="flow-actions"><button type="button" id="flow-reset" hidden>Start over</button></div>
+<div id="plan" hidden></div>
+<div id="after-flow" hidden>
+<h3 id="adr">Your ADR drafts</h3>
+<div id="adr-drafts"></div>
+<h3>How to record a decision</h3>
+<p>An Architecture Decision Record (ADR) is a short file explaining one technical decision and why you made it. Future you can then see what was considered, instead of guessing from the code. A common location is <code>docs/adr/</code>, with one numbered Markdown file per decision.</p>
+<p class="file">docs/adr/0001-use-postgresql.md</p>
+<div class="code"><pre><code class="nohighlight"># ADR 0001: Use PostgreSQL as the main database
+
+Status: Accepted
+Date: 2026-11-02
+
+## Context
+The app stores users, roles and related business data.
+
+## Options considered
+PostgreSQL, MySQL, SQL Server, MongoDB and H2.
+
+## Decision
+Use PostgreSQL.
+
+## Consequences
+We get strong relational features and wide hosting support.
+Production needs managed backups and connection pooling.</code></pre></div>
+<dl class="lines">
+<div><dt><code># ADR 0001: ...</code></dt><dd>The number gives a permanent ID, and the title states the decision.</dd></div>
+<div><dt><code>Status</code></dt><dd>Usually Proposed, Accepted, Deprecated or Superseded.</dd></div>
+<div><dt><code>Date</code></dt><dd>When the decision was made, which helps you judge whether its reasoning is out of date.</dd></div>
+<div><dt><code>Context</code></dt><dd>The problem and constraints at the time.</dd></div>
+<div><dt><code>Options considered</code></dt><dd>What you compared. You can adapt the pros and cons below.</dd></div>
+<div><dt><code>Decision</code></dt><dd>The choice, stated directly.</dd></div>
+<div><dt><code>Consequences</code></dt><dd>The benefits and costs you're accepting.</dd></div>
+</dl>
+<p>Don't rewrite an accepted ADR when you change your mind. Add a new one and mark the old one as superseded. Each of your answers has a draft below, ready to copy and finish.</p>
+
+
+<p>The suggestions and pros and cons are engineering judgment, not benchmark results. On 2 November 2026 I checked every docs link, along with the licenses, pricing and support claims listed in the sources below. I checked the links again on 9 November 2026. Some of those come from third-party articles rather than official docs. The other pros and cons are my judgment rather than documented facts, so check pricing and licenses again before you decide.</p>
+<h3>Sources for time-sensitive facts</h3>
+<ul class="plain">
+<li><a href="https://developers.cloudflare.com/pages/">Cloudflare: start new projects with Workers</a></li>
+<li><a href="https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/c_sharp_basics.html">Godot C# platform support</a> and <a href="https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_languages.html">its languages</a></li>
+<li><a href="https://docs.flaxengine.com/manual/scripting/index.html">Flax scripting languages</a></li>
+<li><a href="https://libgdx.com/wiki/jvm-langs/using-libgdx-with-kotlin">Kotlin with libGDX</a></li>
+<li><a href="https://docs.cocos.com/creator/manual/en/scripting/">Cocos Creator scripting</a></li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/paper-2d-overview-in-unreal-engine">Unreal Paper 2D</a></li>
+<li><a href="https://defold.com/manuals/introduction/">Defold 2D and 3D</a></li>
+<li><a href="https://docs.sentry.io/platforms/">Sentry platforms</a> and <a href="https://docs.sentry.io/platforms/godot/">its Godot SDK</a></li>
+<li><a href="https://firebase.google.com/docs/crashlytics">Firebase Crashlytics</a> and <a href="https://firebase.google.com/docs/analytics">Google Analytics for Firebase</a></li>
+<li><a href="https://docs.gameanalytics.com/event-tracking-and-integrations/sdks-and-collection-api/sdks-overview">GameAnalytics SDKs</a></li>
+<li><a href="https://heroiclabs.com/heroic-cloud/">Heroic Cloud</a>, <a href="https://heroiclabs.com/docs/nakama/getting-started/install/">Nakama install</a> and <a href="https://heroiclabs.com/docs/hiro/concepts/achievements/">Hiro achievements</a></li>
+<li><a href="https://partner.steamgames.com/doc/features/cloud">Steam Cloud</a> and <a href="https://partner.steamgames.com/doc/features/achievements">Steam achievements</a></li>
+<li><a href="https://developer.android.com/games/pgs/deprecation">Play Games Services deprecation</a></li>
+<li><a href="https://secure.businesswire.com/news/home/20260116386991/en/Cloudflare-Acquires-Astro-to-Accelerate-the-Future-of-High-Performance-Web-Development">Cloudflare and Astro announcement</a></li>
+<li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits">GitHub Pages limits</a></li>
+<li><a href="https://activation.unity3d.com/products/pricing-updates">Unity pricing updates</a></li>
+<li><a href="https://partner.steamgames.com/doc/gettingstarted/appfee">Steam Direct fee</a></li>
+<li><a href="https://gameworldobserver.com/2026/08/19/apple-will-reduce-the-app-store-commission-in-the-eu-to-resolve-disagreements-with-the-european-commission">App Store commission changes</a> (third-party)</li>
+<li><a href="https://developer.microsoft.com/en-us/games/products/playfab/pricing/">PlayFab pricing</a></li>
+<li><a href="https://github.com/heroiclabs/nakama">Nakama license and binaries</a></li>
+<li><a href="https://www.mongodb.com/company/blog/product-release-announcements/django-mongodb-backend-now-generally-available">Django MongoDB Backend release</a></li>
+<li><a href="https://orm.drizzle.team/docs/latest-releases/drizzle-orm-v1beta2">Drizzle SQL Server beta</a></li>
+<li><a href="https://four.htmx.org/announcements/2026-08-28-htmx-4.0.0-is-released">htmx 4 release</a></li>
+<li><a href="https://getkanal.com/blog/shopify-pricing">Shopify fees</a> (third-party)</li>
+<li><a href="https://github.com/jaredhanson/passport">Passport repository activity</a></li>
+<li><a href="https://gamemaker.io/en/help/articles/november-2023-pricing-terms-change-faq">GameMaker licensing</a> and <a href="https://www.gamingonlinux.com/2026/10/gamemaker-announce-their-next-gen-runtime-gmrt-will-be-free-for-commercial-use/">its 2027 runtime change</a> (third-party)</li>
+<li><a href="https://defold.com/">Defold platforms and license</a></li>
+<li><a href="https://monogame.net/">MonoGame platforms</a></li>
+<li><a href="https://libgdx.com/">libGDX platforms</a></li>
+<li><a href="https://flaxengine.com/licensing/">Flax licensing</a> and <a href="https://flaxengine.com/features/">platforms</a></li>
+<li><a href="https://wiki.libsdl.org/SDL3/README-platforms">SDL platforms</a></li>
+<li><a href="https://www.construct.net/en/make-games/manuals/construct-3/overview/publishing-projects">Construct exports</a></li>
+<li><a href="https://playcanvas.com/plans">PlayCanvas plans</a></li>
+<li><a href="https://www.liquibase.com/blog/liquibase-community-for-the-future-fsl">Liquibase's license change</a></li>
+<li><a href="https://www.jooq.org/download/">jOOQ editions</a></li>
+<li><a href="https://forum.red-gate.com/discussion/89862/does-flyway-community-edition-supports-undo">Flyway undo edition requirement</a> (a Redgate forum reply, so check current editions)</li>
+<li><a href="https://www.keycloak.org/server/supported-configurations">Keycloak supported configurations</a></li>
+<li><a href="https://www.auth0.com/pricing">Auth0 pricing</a></li>
+<li><a href="https://learn.microsoft.com/en-gb/entra/external-id/external-identities-pricing">Microsoft Entra External ID pricing</a></li>
+<li><a href="https://newreleases.io/project/github/vaadin/platform/release/25.0.0">Vaadin 25 release notes</a></li>
+</ul>
+
+
+</div>
+<div id="stack-guide" hidden></div>
+<div id="guide" hidden>
+<p class="part">Part 2</p>
+<h2 id="foundations">Java and Spring concepts</h2>
+<div class="tw"><table>
+<thead><tr><th>Term</th><th>What it is</th></tr></thead>
+<tbody>
+<tr><td><code>javac</code></td><td>The compiler. It produces JVM bytecode (<code>.class</code> files), not machine code</td></tr>
+<tr><td><code>java</code> (the JVM)</td><td>Runs bytecode and compiles frequently used code to machine code at runtime</td></tr>
+<tr><td>JDK</td><td>The compiler, standard library and JVM together</td></tr>
+<tr><td>Maven and <code>pom.xml</code></td><td>A build tool that compiles your code and downloads its libraries, and its configuration file</td></tr>
+<tr><td><code>.jar</code></td><td>A ZIP of <code>.class</code> files and resources</td></tr>
+<tr><td>Classpath</td><td>The list of places the JVM looks for classes, which it loads at runtime</td></tr>
+<tr><td><code>package</code></td><td>A named group of classes. The folder structure should match the package name</td></tr>
+<tr><td><code>import</code></td><td>Lets you use a class by its short name</td></tr>
+<tr><td>Annotation (<code>@Service</code>)</td><td>A label on code that tools such as Spring can read at runtime</td></tr>
+<tr><td>Reflection</td><td>Code that lists and calls a class's methods and fields at runtime</td></tr>
+<tr><td><code>interface</code></td><td>A set of methods a class promises to provide. A class can implement many</td></tr>
+<tr><td>Generics (<code>List&lt;Task&gt;</code>)</td><td>Classes that work with a type you name, checked by the compiler</td></tr>
+<tr><td><code>Optional&lt;T&gt;</code></td><td>A value that may be absent, used mostly for return values</td></tr>
+</tbody></table></div>
+
+<p>Four language differences explain most of the code below:</p>
+<ul class="plain">
+<li><strong>Object variables are references.</strong> <code>Task t</code> points at an object rather than containing it, so two variables can refer to the same object.</li>
+<li><strong>Memory is garbage collected.</strong> There's <code>new</code>, but no <code>delete</code> and no destructors to rely on.</li>
+<li><strong>Methods can be overridden by default.</strong> Non-static, non-private, non-final methods can be replaced in a subclass. That's what lets test libraries swap them for fakes.</li>
+<li><strong>Arguments are always passed by value.</strong> For objects, the value copied is the reference, so a method can change the object but not your variable.</li>
+</ul>
+
+<h3>Spring concepts</h3>
+<dl class="lines">
+<div><dt>Bean</dt><dd>An object that Spring creates and owns. By default there's one per class, like a singleton.</dd></div>
+<div><dt>Application context</dt><dd>The container that holds all the beans.</dd></div>
+<div><dt>Dependency injection</dt><dd>Instead of each class creating what it needs, Spring finds what each constructor asks for, then creates and connects the objects in the right order.</dd></div>
+<div><dt>Component scan</dt><dd>Spring searches your package for classes with marker annotations and makes them beans.</dd></div>
+<div><dt>Auto-configuration</dt><dd>Spring Boot checks which libraries are on the classpath and sets up sensible defaults.</dd></div>
+<div><dt>Starter</dt><dd>A dependency that brings in a group of related libraries.</dd></div>
+<div><dt>Thread safety</dt><dd>Tomcat handles requests on a thread pool, and they all share the same controller object. Don't store per-request data in a controller's fields, because other requests would see it.</dd></div>
+</dl>
+<div class="code flow"><pre><code class="nohighlight">HTTP request
+  → Tomcat             embedded web server
+  → DispatcherServlet  finds the method matching the URL
+  → @RestController    handles HTTP input and status codes
+  → @Service           business logic
+  → Repository         database access
+  ← Jackson converts the returned object to JSON</code></pre></div>
+
+<h2>Set up your machine</h2>
+<p>The commands use a Unix-style shell. That means the terminal on macOS or Linux, and <a href="https://git-scm.com/downloads">Git Bash</a> or WSL on Windows.</p>
+
+<h3 id="step-1">Step 1: Install JDK 25</h3>
+<p>The JDK contains the compiler (<code>javac</code>) and the runtime (<code>java</code>). Download Temurin, a free OpenJDK build, from <a href="https://adoptium.net/temurin/releases/?version=25">adoptium.net</a> and run the installer for your system. Choose the options to set <code>JAVA_HOME</code> and add Java to your <code>PATH</code> if the installer offers them.</p>
+<p>If you can't run installers, download the archive version instead and extract it anywhere. Then set these two environment variables yourself:</p>
+<dl class="lines">
+<div><dt><code>JAVA_HOME</code></dt><dd>The extracted folder, which is the one above <code>bin</code>. Tools use this to find the JDK.</dd></div>
+<div><dt><code>PATH</code></dt><dd>Add that folder's <code>bin</code> folder, so you can type <code>java</code> anywhere.</dd></div>
+</dl>
+<p>Programs read these variables when they start, so reopen your terminals and editor afterward. Then check the install. Both commands should report version 25:</p>
+<div class="code"><pre><code class="language-bash">java -version</code></pre></div>
+<div class="code"><pre><code class="language-bash">javac -version</code></pre></div>
+
+<h3 id="step-2">Step 2: Create the project</h3>
+<p><a href="https://start.spring.io/">Spring Initializr</a> generates a ready-to-build project. You can use its web page, or run this from the folder where you keep your projects:</p>
+<div data-show="build:maven"><div class="code"><pre><code class="language-bash" data-dyn="1">curl -fsS https://start.spring.io/starter.zip \
+  -d type=maven-project \
+  -d language=java \
+  -d bootVersion=4.1.2 \
+  -d javaVersion=25 \
+  -d groupId=com.example \
+  -d artifactId=demo \
+  -d name=demo \
+  -d packageName=com.example.demo \
+  -d baseDir=demo \
+  -d dependencies=web \
+  -o demo.zip</code></pre></div></div>
+<div data-show="build:gradle"><div class="code"><pre><code class="language-bash" data-dyn="1">curl -fsS https://start.spring.io/starter.zip \
+  -d type=gradle-project-kotlin \
+  -d language=java \
+  -d bootVersion=4.1.2 \
+  -d javaVersion=25 \
+  -d groupId=com.example \
+  -d artifactId=demo \
+  -d name=demo \
+  -d packageName=com.example.demo \
+  -d baseDir=demo \
+  -d dependencies=web \
+  -o demo.zip</code></pre></div></div>
+<dl class="lines">
+<div><dt><code>-fsS</code></dt><dd>Fails on an HTTP error, and hides the progress bar but still shows errors.</dd></div>
+<div><dt><code>-d type=...</code></dt><dd>The build tool. Each <code>-d</code> sets one option.</dd></div>
+<div><dt><code>bootVersion</code>, <code>javaVersion</code></dt><dd>The Spring Boot and Java versions. Newer Spring Boot versions may appear over time.</dd></div>
+<div><dt><code>groupId</code>, <code>artifactId</code></dt><dd>Your project's identity. The group is usually a domain you control.</dd></div>
+<div><dt><code>packageName</code></dt><dd>Where your code lives. This guide's code uses <code>com.example.demo</code>.</dd></div>
+<div><dt><code>dependencies=web</code></dt><dd>Adds Spring's web support, including an embedded server.</dd></div>
+<div><dt><code>-o demo.zip</code></dt><dd>Saves the download to this file.</dd></div>
+</dl>
+<div class="code"><pre><code class="language-bash">unzip demo.zip</code></pre></div>
+<div class="code"><pre><code class="language-bash">cd demo</code></pre></div>
+<div data-show="build:maven">
+<p>Maven is the build tool: it downloads libraries, compiles your code, runs tests and packages the app. You don't install it, because <code>mvnw</code> downloads the version named in <code>.mvn/wrapper/maven-wrapper.properties</code>, so everyone on the project uses the same one. Check it:</p>
+<div class="code"><pre><code class="language-bash" data-dyn="1">./mvnw -version</code></pre></div>
+<p>You should see Maven and Java 25. If it shows a different Java version, <code>JAVA_HOME</code> is wrong.</p>
+<aside class="note warn"><p><span class="tag">If it fails</span>If the first run fails with <code>Permission denied</code> and <code>fail to move MAVEN_HOME</code>, run it again. Antivirus software scanning the new files may have briefly locked them.</p></aside>
+</div>
+<div data-show="build:gradle">
+<aside class="note warn"><p><span class="tag">Not run</span>The project generation was checked, but the Gradle commands on this page haven't been run.</p></aside>
+<p>Gradle is the build tool: it downloads libraries, compiles your code, runs tests and packages the app. You don't install it, because <code>gradlew</code> downloads the version the project names. Check it:</p>
+<div class="code"><pre><code class="language-bash" data-dyn="1">./gradlew --version</code></pre></div>
+<p class="file">build.gradle.kts</p>
+<div class="code"><pre><code class="language-kotlin" data-dyn="1">plugins {
+	java
+	id("org.springframework.boot") version "4.1.2"
+	id("io.spring.dependency-management") version "1.1.7"
+}
+
+group = "com.example"
+version = "0.0.1-SNAPSHOT"
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(25)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-webmvc")
+	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
+	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+tasks.withType&lt;Test&gt; {
+	useJUnitPlatform()
+}</code></pre></div>
+<dl class="lines">
+<div><dt><code>plugins { }</code></dt><dd>Adds Java support, Spring Boot's tasks such as <code>bootRun</code>, and managed library versions.</dd></div>
+<div><dt><code>group</code>, <code>version</code></dt><dd>Your project's coordinates.</dd></div>
+<div><dt><code>toolchain</code></dt><dd>Compiles for Java 25.</dd></div>
+<div><dt><code>repositories</code></dt><dd>Where to download libraries.</dd></div>
+<div><dt><code>implementation(...)</code></dt><dd>A library for your main code.</dd></div>
+<div><dt><code>testImplementation(...)</code></dt><dd>A library only for tests.</dd></div>
+<div><dt><code>testRuntimeOnly(...)</code></dt><dd>Needed only while tests run.</dd></div>
+<div><dt><code>useJUnitPlatform()</code></dt><dd>Tells Gradle to run JUnit tests.</dd></div>
+</dl>
+</div>
+
+<h3 id="step-3">Step 3: Set up an editor</h3>
+<p>Any Java editor works. <a href="https://www.jetbrains.com/idea/download/">IntelliJ IDEA</a> is the most common choice for Java. These steps use <a href="https://code.visualstudio.com/download">VS Code</a>:</p>
+<div class="code"><pre><code class="language-bash">code --install-extension vscjava.vscode-java-pack</code></pre></div>
+<div class="code"><pre><code class="language-bash">code --install-extension vmware.vscode-boot-dev-pack</code></pre></div>
+<div class="code"><pre><code class="language-bash">code .</code></pre></div>
+<ul class="plain">
+<li>The first command adds Java language support, a debugger, a test runner and Maven integration.</li>
+<li>The second adds Spring tools, such as the Spring Boot Dashboard.</li>
+<li><code>code .</code> opens the current folder. Always open the project's top folder, so the editor recognizes it.</li>
+</ul>
+
+<div data-show="framework:quarkus,micronaut,jakarta-ee">
+<h3 id="step-other">Step 4: Start with <span id="other-name"></span></h3>
+<aside class="note warn"><p><span class="tag">Not run</span>The Spring Boot steps are hidden, because their code won't work with this framework. Your decisions above still apply, but you'll build them from this framework's guides.</p></aside>
+<ul class="plain">
+<li data-show="framework:quarkus"><a href="https://quarkus.io/guides/getting-started">Quarkus getting started guide</a></li>
+<li data-show="framework:micronaut"><a href="https://guides.micronaut.io/latest/creating-your-first-micronaut-app-maven-java.html">Micronaut first app guide</a></li>
+<li data-show="framework:jakarta-ee"><a href="https://jakarta.ee/learn/starter-guides/">Jakarta EE starter guides</a></li>
+</ul>
+<p>The concepts carry over, under different names:</p>
+<div class="tw"><table>
+<thead><tr><th>Spring Boot</th><th>Quarkus and Jakarta EE</th><th>Micronaut</th></tr></thead>
+<tbody>
+<tr><td><code>@RestController</code></td><td><code>@Path</code></td><td><code>@Controller</code></td></tr>
+<tr><td><code>@GetMapping</code></td><td><code>@GET</code></td><td><code>@Get</code></td></tr>
+<tr><td><code>@Service</code></td><td><code>@ApplicationScoped</code></td><td><code>@Singleton</code></td></tr>
+<tr><td>Spring Data JPA</td><td>Hibernate with Panache (Quarkus) or Jakarta Persistence</td><td>Micronaut Data</td></tr>
+<tr><td>Spring Security</td><td>Quarkus Security or Jakarta Security</td><td>Micronaut Security</td></tr>
+<tr><td><code>application.properties</code></td><td><code>application.properties</code> (Quarkus) or server configuration</td><td><code>application.properties</code></td></tr>
+</tbody></table></div>
+</div>
+<div data-show="framework:spring-boot">
+<h3 id="step-4">Step 4: Build and run</h3>
+<div class="code"><pre><code class="language-bash">./mvnw test</code></pre></div>
+<p>Maven downloads the libraries into <code>~/.m2/repository</code>, compiles your code into <code>target/</code>, and runs the tests. Expect these lines:</p>
+<div class="code"><pre><code class="nohighlight">Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+BUILD SUCCESS</code></pre></div>
+<p>You can ignore these messages:</p>
+<ul class="plain">
+<li><code>Mockito is currently self-attaching</code></li>
+<li><code>A Java agent has been loaded dynamically</code></li>
+<li><code>Sharing is only supported for boot loader classes</code></li>
+</ul>
+<div class="code"><pre><code class="language-bash">./mvnw spring-boot:run</code></pre></div>
+<dl class="lines">
+<div><dt><code>spring-boot:run</code></dt><dd>Runs the <code>run</code> goal of the Spring Boot plugin. It compiles the code and starts the app in a separate JVM.</dd></div>
+</dl>
+<p>Look for <code>Started DemoApplication in ... seconds</code>. Then open <a href="http://localhost:8080">http://localhost:8080</a>. A <strong>Whitelabel Error Page</strong> with a 404 is correct, because no endpoints exist yet. Press <code>Ctrl+C</code> to stop.</p>
+
+<p class="part">Part 3</p>
+<h2>The files Initializr created</h2>
+<p>The generated <code>pom.xml</code> also has empty placeholder tags, such as <code>&lt;description/&gt;</code> and <code>&lt;licenses&gt;</code>, which this listing leaves out. You can fill them in or delete them.</p>
+
+<div data-show="build:maven">
+<h3 id="pom"><code>pom.xml</code></h3>
+<div class="code"><pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+	&lt;parent&gt;
+		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+		&lt;version&gt;4.1.2&lt;/version&gt;
+		&lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+	&lt;/parent&gt;
+	&lt;groupId&gt;com.example&lt;/groupId&gt;
+	&lt;artifactId&gt;demo&lt;/artifactId&gt;
+	&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+	&lt;name&gt;demo&lt;/name&gt;
+	&lt;properties&gt;
+		&lt;java.version&gt;25&lt;/java.version&gt;
+	&lt;/properties&gt;
+	&lt;dependencies&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-webmvc&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-webmvc-test&lt;/artifactId&gt;
+			&lt;scope&gt;test&lt;/scope&gt;
+		&lt;/dependency&gt;
+	&lt;/dependencies&gt;
+
+	&lt;build&gt;
+		&lt;plugins&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+				&lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+			&lt;/plugin&gt;
+		&lt;/plugins&gt;
+	&lt;/build&gt;
+
+&lt;/project&gt;</code></pre></div>
+<dl class="lines">
+<div><dt><code>&lt;?xml ...?&gt;</code></dt><dd>Says this is an XML file and how it's encoded.</dd></div>
+<div><dt><code>&lt;project ...&gt;</code></dt><dd>The root element. The attributes identify the XML format so tools can validate it.</dd></div>
+<div><dt><code>&lt;modelVersion&gt;</code></dt><dd>The POM format version. It's always 4.0.0 here.</dd></div>
+<div><dt><code>&lt;parent&gt;</code></dt><dd>Inherits build settings and dependency versions from a shared base.</dd></div>
+<div><dt>Parent <code>&lt;groupId&gt;</code>, <code>&lt;artifactId&gt;</code>, <code>&lt;version&gt;</code></dt><dd>The coordinates that identify a package. The group is the organization and the artifact is the package name.</dd></div>
+<div><dt><code>&lt;relativePath/&gt;</code></dt><dd>Don't look for the parent on disk; get it from the repository.</dd></div>
+<div><dt>Your <code>&lt;groupId&gt;</code>, <code>&lt;artifactId&gt;</code>, <code>&lt;version&gt;</code></dt><dd>Your project's own coordinates. <code>SNAPSHOT</code> marks an in-development version.</dd></div>
+<div><dt><code>&lt;name&gt;</code></dt><dd>A display name.</dd></div>
+<div><dt><code>&lt;properties&gt;</code></dt><dd>Variables for the build.</dd></div>
+<div><dt><code>&lt;java.version&gt;25</code></dt><dd>The parent turns this into the compiler's target release.</dd></div>
+<div><dt><code>&lt;dependencies&gt;</code></dt><dd>The libraries you need.</dd></div>
+<div><dt><code>spring-boot-starter-webmvc</code></dt><dd>Brings Spring MVC, embedded Tomcat and Jackson. It has no version because the parent manages it.</dd></div>
+<div><dt><code>spring-boot-starter-webmvc-test</code></dt><dd>Brings test tools for the web layer.</dd></div>
+<div><dt><code>&lt;scope&gt;test&lt;/scope&gt;</code></dt><dd>Available only to tests, and left out of the packaged app.</dd></div>
+<div><dt><code>&lt;build&gt;</code>, <code>&lt;plugins&gt;</code>, <code>&lt;plugin&gt;</code></dt><dd>Add build tools.</dd></div>
+<div><dt><code>spring-boot-maven-plugin</code></dt><dd>Provides <code>spring-boot:run</code> and builds the runnable jar.</dd></div>
+</dl>
+
+<h3 id="wrapper-files">Wrapper and Git files</h3>
+<p class="file">.mvn/wrapper/maven-wrapper.properties</p>
+<div class="code"><pre><code class="language-ini">wrapperVersion=3.3.4
+distributionType=only-script
+distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.10.0/apache-maven-3.10.0-bin.zip</code></pre></div>
+<dl class="lines">
+<div><dt><code>wrapperVersion</code></dt><dd>The version of the wrapper script.</dd></div>
+<div><dt><code>distributionType=only-script</code></dt><dd>The script does the download, with no helper jar.</dd></div>
+<div><dt><code>distributionUrl</code></dt><dd>The Maven version to download.</dd></div>
+</dl>
+<p><code>mvnw</code> and <code>mvnw.cmd</code> are generated scripts for Bash and Windows. You run them, but you don't normally edit them.</p>
+<p class="file">.gitattributes</p>
+<div class="code"><pre><code class="nohighlight">/mvnw text eol=lf
+*.cmd text eol=crlf</code></pre></div>
+<p>These lines force Unix line endings for the Bash script and Windows line endings for <code>.cmd</code> files. <code>.gitignore</code> keeps generated output and editor settings, such as <code>target/</code>, out of Git.</p>
+
+</div>
+<h3 id="main-class"><code>DemoApplication.java</code></h3>
+<div class="code"><pre><code class="language-java">package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+	}
+
+}</code></pre></div>
+<dl class="lines">
+<div><dt><code>package com.example.demo;</code></dt><dd>Puts this class in a named group.</dd></div>
+<div><dt><code>import ...;</code></dt><dd>Lets you use short class names.</dd></div>
+<div><dt><code>@SpringBootApplication</code></dt><dd>Turns on three things. <code>@ComponentScan</code> searches <code>com.example.demo</code> and its sub-packages, and classes elsewhere are silently ignored. <code>@EnableAutoConfiguration</code> sets up defaults. <code>@SpringBootConfiguration</code> lets you define beans by hand.</dd></div>
+<div><dt><code>public class DemoApplication</code></dt><dd>A public class must live in a file with the same name.</dd></div>
+<div><dt><code>public static void main(String[] args)</code></dt><dd>The program's entry point. It's a static method because all Java code lives in classes. <code>args</code> holds the command-line arguments.</dd></div>
+<div><dt><code>SpringApplication.run(...)</code></dt><dd>Creates the context, creates the beans and starts Tomcat.</dd></div>
+<div><dt><code>DemoApplication.class</code></dt><dd>A runtime object describing the class.</dd></div>
+</dl>
+<aside class="note cpp"><p><span class="tag">Note</span>After <code>main</code> returns, the app keeps running. The JVM stays alive while non-daemon threads exist, such as Tomcat's.</p></aside>
+
+<h3 id="base-config"><code>application.properties</code></h3>
+<div class="code"><pre><code class="language-ini">spring.application.name=demo</code></pre></div>
+<p>This is a key/value setting that names the app. The name appears in log lines as <code>[demo]</code>.</p>
+
+<h3 id="context-test"><code>DemoApplicationTests.java</code></h3>
+<div class="code"><pre><code class="language-java">package com.example.demo;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class DemoApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}</code></pre></div>
+<dl class="lines">
+<div><dt><code>@SpringBootTest</code></dt><dd>Starts the whole application context for this test class.</dd></div>
+<div><dt><code>class</code> without <code>public</code></dt><dd>Visible only inside its package.</dd></div>
+<div><dt><code>@Test</code></dt><dd>Marks a test, which the test runner finds through reflection.</dd></div>
+<div><dt><code>void contextLoads() {}</code></dt><dd>The empty body is fine. The test fails if the app can't start.</dd></div>
+</dl>
+
+<div data-show="build:maven">
+<h3 id="phases">Maven phases</h3>
+<p>Maven phases run in order: <code>compile</code>, <code>test</code>, <code>package</code>, <code>verify</code>, <code>install</code>. Running one also runs the earlier ones. <code>clean</code> deletes <code>target/</code>, which you can think of as your build directory.</p>
+
+</div>
+<h3 id="older">Older tutorials</h3>
+<p>Most online tutorials target older Spring Boot versions:</p>
+<div class="tw"><table>
+<thead><tr><th>Older tutorials</th><th>Your version</th></tr></thead>
+<tbody>
+<tr><td><code>spring-boot-starter-web</code></td><td><code>spring-boot-starter-webmvc</code></td></tr>
+<tr><td><code>spring-boot-starter-test</code></td><td>A test starter per technology, such as <code>spring-boot-starter-webmvc-test</code></td></tr>
+<tr><td><code>@MockBean</code></td><td><code>@MockitoBean</code></td></tr>
+<tr><td><code>org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest</code></td><td><code>org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest</code></td></tr>
+<tr><td><code>com.fasterxml.jackson.databind.*</code></td><td><code>tools.jackson.databind.*</code> (annotations keep <code>com.fasterxml.jackson.annotation</code>)</td></tr>
+<tr><td><code>javax.persistence.*</code>, <code>javax.validation.*</code></td><td><code>jakarta.persistence.*</code>, <code>jakarta.validation.*</code></td></tr>
+</tbody></table></div>
+
+<p class="part">Part 4</p>
+<h2>Build your stack</h2>
+<p>From Step 7 onward, this guide follows your choices in Part 1.</p>
+
+<h3 id="step-5">Step 5: First endpoint</h3>
+<p class="file">src/main/java/com/example/demo/HelloController.java</p>
+<div class="code"><pre><code class="language-java">package com.example.demo;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+
+	@GetMapping("/hello")
+	public String hello(@RequestParam(defaultValue = "world") String name) {
+		return "Hello, " + name + "!";
+	}
+
+}</code></pre></div>
+<dl class="lines">
+<div><dt><code>@RestController</code></dt><dd>Makes this a bean and writes each method's return value to the HTTP response.</dd></div>
+<div><dt><code>@GetMapping("/hello")</code></dt><dd>Routes <code>GET /hello</code> to this method. Think of a route table built automatically at startup.</dd></div>
+<div><dt><code>public String hello(...)</code></dt><dd>Returns a string. Java strings are immutable objects, so concatenation creates a new one.</dd></div>
+<div><dt><code>@RequestParam(defaultValue = "world")</code></dt><dd>Fills the parameter from <code>?name=...</code>, or uses the default.</dd></div>
+<div><dt><code>String name</code></dt><dd>Spring needs this parameter name at runtime to match <code>?name=</code>. The compiler normally discards parameter names, but the parent POM tells <code>javac</code> to keep them.</dd></div>
+<div><dt><code>return "Hello, " + name + "!";</code></dt><dd>Builds the response text.</dd></div>
+</dl>
+<p>Start the app with <code>./mvnw spring-boot:run</code>, then in a second terminal run:</p>
+<div class="code"><pre><code class="language-bash">curl "http://localhost:8080/hello?name=Spring"</code></pre></div>
+<p>You should see <code>Hello, Spring!</code>. The quotes stop the shell from treating <code>?</code> specially.</p>
+
+<h3 id="step-6">Step 6: Faster edits and debugging</h3>
+<p>Add this inside <code>&lt;dependencies&gt;</code>, then restart:</p>
+<div class="code"><pre><code class="language-xml">&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+	&lt;optional&gt;true&lt;/optional&gt;
+&lt;/dependency&gt;</code></pre></div>
+<dl class="lines">
+<div><dt><code>spring-boot-devtools</code></dt><dd>Restarts the app when compiled classes change.</dd></div>
+<div><dt><code>&lt;optional&gt;true&lt;/optional&gt;</code></dt><dd>Stops it from passing to other projects that might depend on this one.</dd></div>
+</dl>
+<aside class="note cpp"><p><span class="tag">Note</span>DevTools loads your classes separately from the libraries, then reloads only yours, which is why restarts are fast. In testing, the first start took 1.6 seconds and the restart took 0.24 seconds.</p></aside>
+<p>It watches compiled classes, not source files. VS Code normally compiles when you save; otherwise run:</p>
+<div class="code"><pre><code class="language-bash">./mvnw compile</code></pre></div>
+<p>To test this, change <code>Hello</code> to <code>Hi</code>, compile, and run <code>curl</code> again.</p>
+<p>To debug, stop the terminal copy, open <code>DemoApplication.java</code>, and click <strong>Debug</strong> above <code>main</code>. Click the margin beside the <code>return</code> line to set a breakpoint. <code>F10</code> steps over a line and <code>F5</code> continues.</p>
+
+<h3 id="step-7">Step 7: Add your database and libraries</h3>
+<div id="dyn-deps"></div>
+
+<h3 id="step-8">Step 8: Write the feature</h3>
+<p>This small task list runs through every layer you chose.</p>
+<div id="dyn-feature"></div>
+
+<h3 id="step-9">Step 9: Write tests</h3>
+<div id="dyn-tests"></div>
+<p>Run all tests, or just this class:</p>
+<div class="code"><pre><code class="language-bash">./mvnw test</code></pre></div>
+<div class="code"><pre><code class="language-bash">./mvnw test -Dtest=TaskControllerTests</code></pre></div>
+<aside class="note cpp" data-show="build:maven"><p><span class="tag">Note</span><code>-Dtest=...</code> sets a property that the test plugin reads at runtime.</p></aside>
+<aside class="note warn"><p><span class="tag">Watch out</span>By default, class names need to look like <code>*Test</code> or <code>*Tests</code>. In testing, a failing test in a class named <code>TaskChecks</code> was skipped without any warning.</p></aside>
+<div class="tw"><table>
+<thead><tr><th>Test type</th><th>What it loads</th><th>Use it for</th></tr></thead>
+<tbody>
+<tr><td>Plain JUnit</td><td>Nothing from Spring</td><td>Logic in one class; fastest</td></tr>
+<tr><td><code>@WebMvcTest</code></td><td>Web layer</td><td>URLs, status codes, JSON and validation</td></tr>
+<tr><td><code>@DataJpaTest</code></td><td>Entities and repositories</td><td>Custom queries; needs <code>spring-boot-starter-data-jpa-test</code></td></tr>
+<tr><td><code>@SpringBootTest</code></td><td>The whole app</td><td>Checking that everything works together; slowest</td></tr>
+</tbody></table></div>
+
+<h3 id="step-10">Step 10: Configuration and profiles</h3>
+<p>A profile is a named set of settings, chosen when the app starts.</p>
+<p class="file">src/main/resources/application-dev.properties</p>
+<div class="code"><pre><code class="language-ini">spring.jpa.show-sql=true
+logging.level.com.example.demo=DEBUG</code></pre></div>
+<dl class="lines">
+<div><dt><code>spring.jpa.show-sql=true</code></dt><dd>Prints the SQL that Hibernate runs. It only affects JPA, so with other data access choices use <code>logging.level.org.springframework.jdbc=DEBUG</code> or your library's own logging.</dd></div>
+<div><dt><code>logging.level.com.example.demo=DEBUG</code></dt><dd>Shows debug logs from your package.</dd></div>
+</dl>
+<div class="code"><pre><code class="language-bash">./mvnw spring-boot:run -Dspring-boot.run.profiles=dev</code></pre></div>
+<p>This runs with the <code>dev</code> profile. When the same setting appears in several places, this order applies, highest priority first:</p>
+<ol class="plain">
+<li>Command-line arguments</li>
+<li>Environment variables</li>
+<li><code>application-{profile}.properties</code></li>
+<li><code>application.properties</code></li>
+</ol>
+<div class="code"><pre><code class="language-bash">SERVER_PORT=8081 ./mvnw spring-boot:run</code></pre></div>
+<p>This sets an environment variable for one command. Spring maps <code>SERVER_PORT</code> to <code>server.port</code>. Use environment variables for passwords and other secrets, to keep them out of Git.</p>
+<p>For your own setting, add <code>app.greeting=Hi</code> and read it through a constructor parameter:</p>
+<div class="code"><pre><code class="language-java">public GreetingController(@Value("${app.greeting}") String greeting) {</code></pre></div>
+<p><code>@Value</code> comes from <code>org.springframework.beans.factory.annotation.Value</code>. <code>${...}</code> tells Spring to look up that setting.</p>
+
+<h3 id="step-login">Step 11: Add login</h3>
+<div id="dyn-login"></div>
+
+<h3 id="step-admin">Step 12: Add the admin area</h3>
+<div id="dyn-admin"></div>
+
+<h3 id="step-11">Step 13: Package the app</h3>
+<div class="code"><pre><code class="language-bash">./mvnw clean package</code></pre></div>
+<p>This deletes <code>target/</code>, compiles, runs the tests and builds the jar.</p>
+<div class="code"><pre><code class="language-bash">java -jar target/demo-0.0.1-SNAPSHOT.jar</code></pre></div>
+<p><code>-jar</code> tells the JVM to run the jar's main class. In testing the jar was about 54 MB, because it includes your code, its libraries and Tomcat. It only needs a Java 25 runtime to run. DevTools is left out.</p>
+
+<h3 id="step-deploy">Step 14: Deploy</h3>
+<div id="dyn-deploy"></div>
+
+<p class="part">Reference</p>
+<h2 id="commands">Quick reference</h2>
+<div class="tw"><table>
+<thead><tr><th>Task</th><th>Command</th></tr></thead>
+<tbody>
+<tr><td>Run the app</td><td><code>./mvnw spring-boot:run</code></td></tr>
+<tr><td>Run with a profile</td><td><code>./mvnw spring-boot:run -Dspring-boot.run.profiles=dev</code></td></tr>
+<tr><td>Run all tests</td><td><code>./mvnw test</code></td></tr>
+<tr><td>Run one test class</td><td><code>./mvnw test -Dtest=TaskControllerTests</code></td></tr>
+<tr><td>Build a fresh jar</td><td><code>./mvnw clean package</code></td></tr>
+<tr><td>See where a library comes from</td><td><code>./mvnw dependency:tree</code></td></tr>
+</tbody></table></div>
+
+<h2 id="trouble">Troubleshooting</h2>
+<div class="tw"><table>
+<thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td><code>Permission denied</code> and <code>fail to move MAVEN_HOME</code></td><td>Intermittent failure on the first Maven download</td><td>Run the same command again</td></tr>
+<tr><td><code>java: command not found</code> or <code>The JAVA_HOME environment variable is not defined correctly</code></td><td>Terminal opened before the change, or wrong path</td><td>Reopen the terminal and check that <code>JAVA_HOME</code> is the folder above <code>bin</code></td></tr>
+<tr><td><code>release version 25 not supported</code></td><td>Maven is using an older JDK</td><td>Run <code>./mvnw -version</code> and fix <code>JAVA_HOME</code></td></tr>
+<tr><td><code>Port 8080 was already in use</code></td><td>Another copy is running</td><td>Stop it, or use <code>SERVER_PORT=8081</code></td></tr>
+<tr><td>Your endpoint returns 404</td><td>Controller is outside <code>com.example.demo</code>, or the app wasn't restarted</td><td>Move the class or restart</td></tr>
+<tr><td><code>Unable to find a @SpringBootConfiguration</code></td><td>Test isn't under <code>com.example.demo</code></td><td>Match the main code's package</td></tr>
+<tr><td><code>Failed to configure a DataSource</code></td><td>A data library was added without a database</td><td>Add <code>h2</code> or set <code>spring.datasource.url</code></td></tr>
+<tr><td><code>Connection to localhost:5432 refused</code></td><td>Your database isn't running</td><td>Start it, as in Step 7</td></tr>
+<tr><td><code>required a bean of type ... could not be found</code></td><td>Class has no annotation or is outside the scanned package</td><td>Add <code>@Service</code> or similar, or move the class</td></tr>
+<tr><td><code>Failed to clean project: Failed to delete ...</code></td><td>The packaged app is running, and on Windows that locks the jar</td><td>Stop the app and run the command again</td></tr>
+<tr><td>Red errors in VS Code, but <code>./mvnw test</code> passes</td><td>Editor state is out of date</td><td>Press <code>Ctrl+Shift+P</code> and run <strong>Java: Clean Java Language Server Workspace</strong></td></tr>
+</tbody></table></div>
+
+</div>
+<h2 id="next">What to learn next</h2>
+<ol class="plain">
+<li><strong>Consistent error responses:</strong> use <code>@RestControllerAdvice</code> to handle errors in one place, a bit like a central <code>catch</code> block for all controllers.</li>
+<li data-show="database:h2"><strong>A real database:</strong> install PostgreSQL. Add <code>org.postgresql:postgresql</code> with <code>runtime</code> scope and point <code>spring.datasource.url</code> at it. Tables aren't created automatically there, so use <code>spring-boot-starter-flyway</code> and <code>org.flywaydb:flyway-database-postgresql</code> to manage them.</li>
+<li><strong>Your ADRs:</strong> finish the drafts in Part 1 and commit them to <code>docs/adr/</code>.</li>
+</ol>
+</div>
+</main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>

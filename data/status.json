@@ -1,0 +1,154 @@
+{
+  "framework:spring-boot": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "framework:quarkus": {
+    "l": "none",
+    "t": "Not run"
+  },
+  "framework:micronaut": {
+    "l": "none",
+    "t": "Not run"
+  },
+  "framework:jakarta-ee": {
+    "l": "none",
+    "t": "Not run"
+  },
+  "build:maven": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "build:gradle": {
+    "l": "none",
+    "t": "Not run"
+  },
+  "frontend:thymeleaf": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "frontend:react": {
+    "l": "partial",
+    "t": "Backend ran"
+  },
+  "frontend:vue": {
+    "l": "partial",
+    "t": "Backend ran"
+  },
+  "frontend:angular": {
+    "l": "partial",
+    "t": "Backend ran"
+  },
+  "frontend:vaadin": {
+    "l": "compiled",
+    "t": "Compiled"
+  },
+  "api:server": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "api:rest": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "api:graphql": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "api:grpc": {
+    "l": "none",
+    "t": "Not run"
+  },
+  "database:postgresql": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "database:h2": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "database:mysql": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "database:sqlserver": {
+    "l": "compiled",
+    "t": "Compiled"
+  },
+  "database:mongodb": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "data:jpa": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "data:jdbc": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "data:jooq": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "data:mybatis": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "migrations:flyway": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "migrations:liquibase": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "login:spring-security": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "login:keycloak": {
+    "l": "compiled",
+    "t": "Compiled"
+  },
+  "login:auth0": {
+    "l": "compiled",
+    "t": "Compiled"
+  },
+  "login:entra": {
+    "l": "compiled",
+    "t": "Compiled"
+  },
+  "admin:in-app": {
+    "l": "run",
+    "t": "Ran"
+  },
+  "admin:react-admin": {
+    "l": "none",
+    "t": "Not run"
+  },
+  "admin:vaadin-admin": {
+    "l": "none",
+    "t": "Not run"
+  },
+  "admin:low-code": {
+    "l": "none",
+    "t": "Not run"
+  },
+  "hosting:paas": {
+    "l": "none",
+    "t": "Not run"
+  },
+  "hosting:containers": {
+    "l": "none",
+    "t": "Not run"
+  },
+  "hosting:vps": {
+    "l": "none",
+    "t": "Not run"
+  },
+  "hosting:kubernetes": {
+    "l": "none",
+    "t": "Not run"
+  }
+}
